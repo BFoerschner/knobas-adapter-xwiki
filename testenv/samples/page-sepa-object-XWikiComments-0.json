@@ -1,0 +1,699 @@
+{
+  "links": [
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome/objects/XWiki.XWikiComments/0",
+      "rel": "self",
+      "type": null,
+      "hrefLang": null
+    }
+  ],
+  "id": "xwiki:Tidewater.Engineering.SEPAPayoutRetryDesign.WebHome:23f488a4-ebb3-4129-b25e-816e11597359",
+  "guid": "23f488a4-ebb3-4129-b25e-816e11597359",
+  "pageId": "xwiki:Tidewater.Engineering.SEPAPayoutRetryDesign.WebHome",
+  "pageVersion": "3.1",
+  "wiki": "xwiki",
+  "space": "Tidewater.Engineering.SEPAPayoutRetryDesign",
+  "pageName": "WebHome",
+  "pageAuthor": "XWiki.PriyaNair",
+  "pageAuthorName": null,
+  "className": "XWiki.XWikiComments",
+  "number": 0,
+  "headline": "XWiki.PriyaNair",
+  "properties": [
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome/objects/XWiki.XWikiComments/0/properties/author",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "author"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Author"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "relationalStorage",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "displayType",
+          "value": "input"
+        },
+        {
+          "links": [],
+          "name": "multiSelect",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "30"
+        },
+        {
+          "links": [],
+          "name": "separator",
+          "value": " "
+        },
+        {
+          "links": [],
+          "name": "cache",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "picker",
+          "value": "1"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "1"
+        },
+        {
+          "links": [],
+          "name": "allowedValues",
+          "value": "XWiki.JonasBecker,XWiki.LenaHoffmann,XWiki.MaraLindqvist,XWiki.PriyaNair,XWiki.TomaszWojcik,XWiki.knobas"
+        }
+      ],
+      "value": "XWiki.PriyaNair",
+      "name": "author",
+      "type": "Users"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome/objects/XWiki.XWikiComments/0/properties/comment",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "comment"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Comment"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "40"
+        },
+        {
+          "links": [],
+          "name": "rows",
+          "value": "5"
+        },
+        {
+          "links": [],
+          "name": "editor",
+          "value": ""
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "5"
+        },
+        {
+          "links": [],
+          "name": "restricted",
+          "value": "1"
+        }
+      ],
+      "value": "{{mention reference=\"XWiki.MaraLindqvist\" style=\"FULL_NAME\" anchor=\"XWiki-MaraLindqvist-sepa1\"/}} can you add the manual-review queue SLA here?",
+      "name": "comment",
+      "type": "TextArea"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome/objects/XWiki.XWikiComments/0/properties/date",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "date"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Date"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "20"
+        },
+        {
+          "links": [],
+          "name": "dateFormat",
+          "value": "dd/MM/yyyy HH:mm:ss"
+        },
+        {
+          "links": [],
+          "name": "emptyIsToday",
+          "value": "1"
+        },
+        {
+          "links": [],
+          "name": "picker",
+          "value": "1"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "2"
+        }
+      ],
+      "value": "Sat Aug 22 12:05:00 UTC 2026",
+      "name": "date",
+      "type": "Date"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome/objects/XWiki.XWikiComments/0/properties/highlight",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "highlight"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Highlighted Text"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "40"
+        },
+        {
+          "links": [],
+          "name": "rows",
+          "value": "2"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "3"
+        }
+      ],
+      "value": "",
+      "name": "highlight",
+      "type": "TextArea"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome/objects/XWiki.XWikiComments/0/properties/originalSelection",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "originalSelection"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Original Selection"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "40"
+        },
+        {
+          "links": [],
+          "name": "rows",
+          "value": "5"
+        },
+        {
+          "links": [],
+          "name": "contenttype",
+          "value": "PureText"
+        },
+        {
+          "links": [],
+          "name": "editor",
+          "value": "PureText"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "6"
+        }
+      ],
+      "value": "",
+      "name": "originalSelection",
+      "type": "TextArea"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome/objects/XWiki.XWikiComments/0/properties/replyto",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "replyto"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Reply To"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "5"
+        },
+        {
+          "links": [],
+          "name": "numberType",
+          "value": "integer"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "4"
+        }
+      ],
+      "value": "",
+      "name": "replyto",
+      "type": "Number"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome/objects/XWiki.XWikiComments/0/properties/selection",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "selection"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Selection"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "40"
+        },
+        {
+          "links": [],
+          "name": "rows",
+          "value": "5"
+        },
+        {
+          "links": [],
+          "name": "contenttype",
+          "value": "PureText"
+        },
+        {
+          "links": [],
+          "name": "editor",
+          "value": "PureText"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "3"
+        }
+      ],
+      "value": "",
+      "name": "selection",
+      "type": "TextArea"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome/objects/XWiki.XWikiComments/0/properties/selectionLeftContext",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "selectionLeftContext"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Selection Left Context"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "40"
+        },
+        {
+          "links": [],
+          "name": "rows",
+          "value": "5"
+        },
+        {
+          "links": [],
+          "name": "contenttype",
+          "value": "PureText"
+        },
+        {
+          "links": [],
+          "name": "editor",
+          "value": "PureText"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "4"
+        }
+      ],
+      "value": "",
+      "name": "selectionLeftContext",
+      "type": "TextArea"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome/objects/XWiki.XWikiComments/0/properties/selectionRightContext",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "selectionRightContext"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Selection Right Context"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "40"
+        },
+        {
+          "links": [],
+          "name": "rows",
+          "value": "5"
+        },
+        {
+          "links": [],
+          "name": "contenttype",
+          "value": "PureText"
+        },
+        {
+          "links": [],
+          "name": "editor",
+          "value": "PureText"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "5"
+        }
+      ],
+      "value": "",
+      "name": "selectionRightContext",
+      "type": "TextArea"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome/objects/XWiki.XWikiComments/0/properties/state",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "state"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "State"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "30"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "8"
+        }
+      ],
+      "value": "",
+      "name": "state",
+      "type": "String"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome/objects/XWiki.XWikiComments/0/properties/target",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "target"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Target"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "relationalStorage",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "displayType",
+          "value": "input"
+        },
+        {
+          "links": [],
+          "name": "multiSelect",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "30"
+        },
+        {
+          "links": [],
+          "name": "separator",
+          "value": " "
+        },
+        {
+          "links": [],
+          "name": "cache",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "classname",
+          "value": ""
+        },
+        {
+          "links": [],
+          "name": "freeText",
+          "value": "discouraged"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "7"
+        },
+        {
+          "links": [],
+          "name": "picker",
+          "value": "1"
+        },
+        {
+          "links": [],
+          "name": "sql",
+          "value": ""
+        }
+      ],
+      "value": "",
+      "name": "target",
+      "type": "Page"
+    }
+  ]
+}

@@ -1,0 +1,196 @@
+Recorded by testenv/record-samples. {BASE} = http://127.0.0.1:8099/xwiki
+
+rest-root.json
+    GET {BASE}/rest/?media=json  as knobas -> 200 application/json;charset=UTF-8
+
+rest-root-guest.json
+    GET {BASE}/rest/?media=json  as guest -> 200 application/json;charset=UTF-8  (no Authorization: no XWiki-User header)
+
+rest-root-bad-password.json
+    GET {BASE}/rest/?media=json  as knobas -> 200 application/json;charset=UTF-8  (wrong password: /rest/ itself is not view-checked, so 200 as guest, no XWiki-User header)
+
+rest-client.json
+    GET {BASE}/rest/client?media=json  as knobas -> 200 application/json;charset=UTF-8
+
+spaces-Tidewater-pages.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/pages?media=json  as knobas -> 200 application/json;charset=UTF-8  (only pages whose space is exactly Tidewater)
+
+spaces-Tidewater-Engineering-pages.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/pages?media=json  as knobas -> 200 application/json;charset=UTF-8
+
+spaces-Tidewater-Engineering-StandupProtocols-pages.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/StandupProtocols/pages?media=json  as knobas -> 200 application/json;charset=UTF-8  (WebHome plus the terminal page DailyProtocol20260821)
+
+wiki-spaces.json
+    GET {BASE}/rest/wikis/xwiki/spaces?media=json&number=200  as knobas -> 200 application/json;charset=UTF-8  (every space, nested ones included)
+
+wiki-pages-space-Tidewater.json
+    GET {BASE}/rest/wikis/xwiki/pages?media=json&space=Tidewater  as knobas -> 200 application/json;charset=UTF-8  (recursive, but `space` is a substring match (LIKE %Tidewater%))
+
+wiki-pages-space-Tidewater-start0-number5.json
+    GET {BASE}/rest/wikis/xwiki/pages?media=json&space=Tidewater&start=0&number=5  as knobas -> 200 application/json;charset=UTF-8
+
+wiki-pages-space-Tidewater-start5-number5.json
+    GET {BASE}/rest/wikis/xwiki/pages?media=json&space=Tidewater&start=5&number=5  as knobas -> 200 application/json;charset=UTF-8
+
+children-Tidewater-Engineering-nestedpages.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/pages/WebHome/children?media=json&hierarchy=nestedpages  as knobas -> 200 application/json;charset=UTF-8  (direct children only)
+
+query-solr-space_prefix-Tidewater.json
+    GET {BASE}/rest/wikis/xwiki/query?media=json&type=solr&number=100&q=type%3ADOCUMENT%20AND%20space_prefix%3A%22Tidewater%22  as knobas -> 200 application/json;charset=UTF-8  (recursive, exact space prefix; carries modified/version/author)
+
+query-solr-modified-since.json
+    GET {BASE}/rest/wikis/xwiki/query?media=json&type=solr&number=100&orderField=date&order=desc&q=type%3ADOCUMENT%20AND%20space_prefix%3A%22Tidewater%22%20AND%20date%3A%5B2026-11-12T11%3A08%3A18Z%20TO%20%2A%5D  as knobas -> 200 application/json;charset=UTF-8  (modified at or after 2026-11-12T11:08:18Z; ISO date range works, a millisecond range is ignored)
+
+query-hql-refused.txt
+    GET {BASE}/rest/wikis/xwiki/query?media=json&type=hql&q=where%20doc.space%20like%20%27Tidewater%25%27  as knobas -> 400 text/plain;charset=UTF-8  (rest.allowedQueryTypes defaults to solr)
+
+modifications-since.json
+    GET {BASE}/rest/wikis/xwiki/modifications?media=json&number=20&date=1794481698000  as knobas -> 200 application/json;charset=UTF-8  (date=1794481698000 (2026-11-12T11:08:18Z): wiki-wide, one row per version, strictly after `date`, newest first)
+
+modifications-first-page.json
+    GET {BASE}/rest/wikis/xwiki/modifications?media=json&start=0&number=10  as knobas -> 200 application/json;charset=UTF-8
+
+tags-wiki.json
+    GET {BASE}/rest/wikis/xwiki/tags?media=json  as knobas -> 200 application/json;charset=UTF-8
+
+tags-pages-with-tag-sepa.json
+    GET {BASE}/rest/wikis/xwiki/tags/sepa?media=json  as knobas -> 200 application/json;charset=UTF-8
+
+page-sepa.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome?media=json  as knobas -> 200 application/json;charset=UTF-8
+
+page-sepa-prettynames-objects-attachments.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome?media=json&prettyNames=true&objects=true&attachments=true  as knobas -> 200 application/json;charset=UTF-8
+
+page-sepa.xml
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome  as knobas -> 200 application/xml;charset=UTF-8  (no media/Accept: XML)
+
+page-sepa-comments.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome/comments?media=json  as knobas -> 200 application/json;charset=UTF-8
+
+page-sepa-objects-XWikiComments.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome/objects/XWiki.XWikiComments?media=json  as knobas -> 200 application/json;charset=UTF-8
+
+page-sepa-object-XWikiComments-0.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome/objects/XWiki.XWikiComments/0?media=json  as knobas -> 200 application/json;charset=UTF-8
+
+page-sepa-objects.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome/objects?media=json  as knobas -> 200 application/json;charset=UTF-8
+
+page-sepa-tags.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome/tags?media=json  as knobas -> 200 application/json;charset=UTF-8
+
+page-sepa-history.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome/history?media=json  as knobas -> 200 application/json;charset=UTF-8
+
+page-daily-protocol-terminal.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/StandupProtocols/pages/DailyProtocol20260821?media=json  as knobas -> 200 application/json;charset=UTF-8
+
+page-missing-404.txt
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/pages/NoSuchPage?media=json  as knobas -> 404 text/html;charset=utf-8
+
+page-changelog.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Changelog/pages/WebHome?media=json  as knobas -> 200 application/json;charset=UTF-8
+
+page-changelog-history.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Changelog/pages/WebHome/history?media=json  as knobas -> 200 application/json;charset=UTF-8
+
+page-changelog-history-2.1.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Changelog/pages/WebHome/history/2.1?media=json  as knobas -> 200 application/json;charset=UTF-8  (the page as of version 2.1)
+
+page-showcase-home.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/pages/WebHome?media=json  as knobas -> 200 application/json;charset=UTF-8
+
+page-showcase-home-comments.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/pages/WebHome/comments?media=json  as knobas -> 200 application/json;charset=UTF-8  (second comment is a reply)
+
+page-showcase-home-object-XWikiComments-1.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/pages/WebHome/objects/XWiki.XWikiComments/1?media=json  as knobas -> 200 application/json;charset=UTF-8
+
+page-macros.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Macros/pages/WebHome?media=json  as knobas -> 200 application/json;charset=UTF-8
+
+page-images.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Images/pages/WebHome?media=json  as knobas -> 200 application/json;charset=UTF-8
+
+page-images-attachments.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Images/pages/WebHome/attachments?media=json  as knobas -> 200 application/json;charset=UTF-8
+
+page-images-attachment-meta.json
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Images/pages/WebHome/attachments/knobas-logo.png/metadata?media=json  as knobas -> 200 application/json;charset=UTF-8
+
+user-MaraLindqvist-XWikiUsers.json
+    GET {BASE}/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0?media=json  as knobas -> 200 application/json;charset=UTF-8  (password is never returned)
+
+rendered-showcase-home.html
+    GET {BASE}/bin/get/Tidewater/Showcase/WebHome?xpage=plain&outputSyntax=html  as knobas -> 200 text/html;charset=UTF-8
+
+rendered-showcase-home.annotated.html
+    GET {BASE}/bin/get/Tidewater/Showcase/WebHome?xpage=plain&outputSyntax=annotatedhtml  as knobas -> 200 text/plain;charset=UTF-8
+
+rendered-showcase-tables.html
+    GET {BASE}/bin/get/Tidewater/Showcase/Tables/WebHome?xpage=plain&outputSyntax=html  as knobas -> 200 text/html;charset=UTF-8
+
+rendered-showcase-tables.annotated.html
+    GET {BASE}/bin/get/Tidewater/Showcase/Tables/WebHome?xpage=plain&outputSyntax=annotatedhtml  as knobas -> 200 text/plain;charset=UTF-8
+
+rendered-showcase-macros.html
+    GET {BASE}/bin/get/Tidewater/Showcase/Macros/WebHome?xpage=plain&outputSyntax=html  as knobas -> 200 text/html;charset=UTF-8
+
+rendered-showcase-macros.annotated.html
+    GET {BASE}/bin/get/Tidewater/Showcase/Macros/WebHome?xpage=plain&outputSyntax=annotatedhtml  as knobas -> 200 text/plain;charset=UTF-8
+
+rendered-showcase-images.html
+    GET {BASE}/bin/get/Tidewater/Showcase/Images/WebHome?xpage=plain&outputSyntax=html  as knobas -> 200 text/html;charset=UTF-8
+
+rendered-showcase-images.annotated.html
+    GET {BASE}/bin/get/Tidewater/Showcase/Images/WebHome?xpage=plain&outputSyntax=annotatedhtml  as knobas -> 200 text/plain;charset=UTF-8
+
+rendered-showcase-changelog.html
+    GET {BASE}/bin/get/Tidewater/Showcase/Changelog/WebHome?xpage=plain&outputSyntax=html  as knobas -> 200 text/html;charset=UTF-8
+
+rendered-showcase-changelog.annotated.html
+    GET {BASE}/bin/get/Tidewater/Showcase/Changelog/WebHome?xpage=plain&outputSyntax=annotatedhtml  as knobas -> 200 text/plain;charset=UTF-8
+
+rendered-sepa.html
+    GET {BASE}/bin/get/Tidewater/Engineering/SEPAPayoutRetryDesign/WebHome?xpage=plain&outputSyntax=html  as knobas -> 200 text/html;charset=UTF-8
+
+rendered-sepa.annotated.html
+    GET {BASE}/bin/get/Tidewater/Engineering/SEPAPayoutRetryDesign/WebHome?xpage=plain&outputSyntax=annotatedhtml  as knobas -> 200 text/plain;charset=UTF-8
+
+rendered-showcase-macros.as-guest.html
+    GET {BASE}/bin/get/Tidewater/Showcase/Macros/WebHome?xpage=plain&outputSyntax=html  as guest -> 302   (guests may not view: 302 to the login page)
+
+page-sepa-as-guest.txt
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome?media=json  as guest -> 401 text/html;charset=utf-8  (guests may not view: 401)
+
+page-sepa-bad-password.txt
+    GET {BASE}/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome?media=json  as knobas -> 401 text/html;charset=utf-8  (wrong password: 401, no XWiki-User header)
+
+rendered-changelog-rev-1.1.html
+    GET {BASE}/bin/get/Tidewater/Showcase/Changelog/WebHome?xpage=plain&outputSyntax=html&rev=1.1  as knobas -> 200 text/html;charset=UTF-8  (an old version, rendered)
+
+rendered-sepa-view-full.html
+    GET {BASE}/bin/view/Tidewater/Engineering/SEPAPayoutRetryDesign/  as knobas -> 200 text/html;charset=UTF-8  (the full skinned page, for comparison)
+
+put-page-json-create.json
+    PUT {BASE}/rest/wikis/xwiki/spaces/Sandbox/pages/KnobasRestProbe?media=json  as knobas -> 201 application/json;charset=UTF-8  (JSON body, no form token needed -> 201)
+
+put-page-json-update.json
+    PUT {BASE}/rest/wikis/xwiki/spaces/Sandbox/pages/KnobasRestProbe?media=json  as knobas -> 202 application/json;charset=UTF-8  (-> 202)
+
+put-page-form-no-token.json
+    PUT {BASE}/rest/wikis/xwiki/spaces/Sandbox/pages/KnobasRestProbe?media=json  as knobas -> 202 application/json;charset=UTF-8  (PUT with a form body is accepted without XWiki-Form-Token)
+
+post-comment-form-no-token.txt
+    POST {BASE}/rest/wikis/xwiki/spaces/Sandbox/pages/KnobasRestProbe/comments?media=json  as knobas -> 403 text/plain;charset=UTF-8  (POST with a form/text body without XWiki-Form-Token -> 403)
+
+post-comment-form-with-token.json
+    POST {BASE}/rest/wikis/xwiki/spaces/Sandbox/pages/KnobasRestProbe/comments?media=json  as knobas -> 201 application/json;charset=UTF-8  (same POST with the XWiki-Form-Token header from any authenticated GET -> 201)
+
+post-comment-json.json
+    POST {BASE}/rest/wikis/xwiki/spaces/Sandbox/pages/KnobasRestProbe/comments?media=json  as knobas -> 201 application/json;charset=UTF-8  (JSON body needs no token)
+
+delete-page.txt
+    DELETE {BASE}/rest/wikis/xwiki/spaces/Sandbox/pages/KnobasRestProbe  as knobas -> 204   (-> 204)

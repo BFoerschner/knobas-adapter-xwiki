@@ -1,0 +1,106 @@
+{
+  "links": [
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Macros",
+      "rel": "http://www.xwiki.org/rel/space",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Macros/pages/WebHome/history",
+      "rel": "http://www.xwiki.org/rel/history",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/syntaxes",
+      "rel": "http://www.xwiki.org/rel/syntaxes",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Macros/pages/WebHome",
+      "rel": "self",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/classes/Tidewater.Showcase.Macros.WebHome",
+      "rel": "http://www.xwiki.org/rel/class",
+      "type": null,
+      "hrefLang": null
+    }
+  ],
+  "id": "xwiki:Tidewater.Showcase.Macros.WebHome",
+  "fullName": "Tidewater.Showcase.Macros.WebHome",
+  "wiki": "xwiki",
+  "space": "Tidewater.Showcase.Macros",
+  "name": "WebHome",
+  "title": "Macros",
+  "rawTitle": "Macros",
+  "parent": "",
+  "parentId": "",
+  "version": "1.1",
+  "author": "XWiki.knobas",
+  "authorName": null,
+  "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Macros/",
+  "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Macros/",
+  "translations": {
+    "links": [],
+    "translations": [],
+    "default": ""
+  },
+  "syntax": "xwiki/2.1",
+  "language": "",
+  "majorVersion": 1,
+  "minorVersion": 1,
+  "hidden": false,
+  "enforceRequiredRights": false,
+  "created": 1794481698000,
+  "creator": "XWiki.knobas",
+  "creatorName": null,
+  "modified": 1794481698000,
+  "modifier": "XWiki.knobas",
+  "modifierName": null,
+  "originalMetadataAuthor": "xwiki:XWiki.knobas",
+  "originalMetadataAuthorName": null,
+  "comment": "",
+  "content": "== Code ==\n\n{{code language=\"java\"}}\npublic final class Backoff {\n    static long delayMillis(int attempt) {\n        return 30_000L << attempt;\n    }\n}\n{{/code}}\n\n{{code language=\"sql\"}}\nSELECT merchant_id, SUM(amount) FROM ledger GROUP BY merchant_id;\n{{/code}}\n\n{{code}}\nno language given\n{{/code}}\n\nInline: {{code language=\"bash\"}}just test{{/code}} inside a sentence.\n\n== Message boxes ==\n\n{{info}}An **info** box.{{/info}}\n\n{{warning title=\"Careful\"}}A warning box with a title.{{/warning}}\n\n{{error}}An error box.{{/error}}\n\n{{success}}A success box.{{/success}}\n\n== Box ==\n\n{{box title=\"Box with a title\"}}\nBox content with **formatting** and a list:\n\n* item\n{{/box}}\n\n== HTML ==\n\n{{html}}\n<div class=\"knobas-raw\"><p>Raw <em>HTML</em> from the html macro.</p><ul><li>one</li></ul></div>\n{{/html}}\n\n== Include ==\n\n{{include reference=\"Tidewater.Showcase.IncludedSnippet.WebHome\"/}}\n\n== Display ==\n\n{{display reference=\"Tidewater.Showcase.IncludedSnippet.WebHome\"/}}\n\n== Mention ==\n\nPing {{mention reference=\"XWiki.MaraLindqvist\" style=\"FULL_NAME\" anchor=\"XWiki-MaraLindqvist-showcase\"/}} about the SLA.\n\n== Script ==\n\n{{velocity}}\nRendered for $xcontext.user, so the output depends on who renders it.\n{{/velocity}}\n\n== Unknown macros ==\n\n{{doesnotexist/}}\n\n{{doesnotexist param=\"x\"}}A body the unknown macro never renders.{{/doesnotexist}}\n",
+  "clazz": null,
+  "objects": null,
+  "attachments": null,
+  "hierarchy": {
+    "items": [
+      {
+        "label": "xwiki",
+        "name": "xwiki",
+        "type": "wiki",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Main/"
+      },
+      {
+        "label": "Tidewater",
+        "name": "Tidewater",
+        "type": "space",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/"
+      },
+      {
+        "label": "Showcase",
+        "name": "Showcase",
+        "type": "space",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/"
+      },
+      {
+        "label": "Macros",
+        "name": "Macros",
+        "type": "space",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Macros/"
+      },
+      {
+        "label": "WebHome",
+        "name": "WebHome",
+        "type": "document",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Macros/"
+      }
+    ]
+  }
+}

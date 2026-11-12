@@ -1,0 +1,82 @@
+{
+  "links": [],
+  "tags": [
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/tags/changelog",
+          "rel": "http://www.xwiki.org/rel/tag",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "name": "changelog"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/tags/design",
+          "rel": "http://www.xwiki.org/rel/tag",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "name": "design"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/tags/on-call",
+          "rel": "http://www.xwiki.org/rel/tag",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "name": "on-call"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/tags/payments",
+          "rel": "http://www.xwiki.org/rel/tag",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "name": "payments"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/tags/runbook",
+          "rel": "http://www.xwiki.org/rel/tag",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "name": "runbook"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/tags/sepa",
+          "rel": "http://www.xwiki.org/rel/tag",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "name": "sepa"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/tags/showcase",
+          "rel": "http://www.xwiki.org/rel/tag",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "name": "showcase"
+    }
+  ]
+}

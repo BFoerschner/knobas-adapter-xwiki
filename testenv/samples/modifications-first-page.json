@@ -1,0 +1,225 @@
+{
+  "links": [],
+  "historySummaries": [
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Outside/ProductRoadmap/pages/WebHome/history/1.1",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "pageId": "xwiki:Outside.ProductRoadmap.WebHome",
+      "wiki": "xwiki",
+      "space": "Outside.ProductRoadmap",
+      "name": "WebHome",
+      "version": "1.1",
+      "majorVersion": 1,
+      "minorVersion": 1,
+      "modified": 1794481699000,
+      "modifier": "xwiki:XWiki.LenaHoffmann",
+      "modifierName": null,
+      "language": null,
+      "comment": ""
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/Showcase/Changelog/pages/WebHome/history/4.1",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "pageId": "xwiki:Tidewater.Showcase.Changelog.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Showcase.Changelog",
+      "name": "WebHome",
+      "version": "4.1",
+      "majorVersion": 4,
+      "minorVersion": 1,
+      "modified": 1794481698000,
+      "modifier": "xwiki:XWiki.PriyaNair",
+      "modifierName": null,
+      "language": null,
+      "comment": ""
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/Showcase/pages/WebHome/history/3.1",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "pageId": "xwiki:Tidewater.Showcase.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Showcase",
+      "name": "WebHome",
+      "version": "3.1",
+      "majorVersion": 3,
+      "minorVersion": 1,
+      "modified": 1794481698000,
+      "modifier": "xwiki:XWiki.MaraLindqvist",
+      "modifierName": null,
+      "language": null,
+      "comment": ""
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/Showcase/Changelog/pages/WebHome/history/3.1",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "pageId": "xwiki:Tidewater.Showcase.Changelog.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Showcase.Changelog",
+      "name": "WebHome",
+      "version": "3.1",
+      "majorVersion": 3,
+      "minorVersion": 1,
+      "modified": 1794481698000,
+      "modifier": "xwiki:XWiki.PriyaNair",
+      "modifierName": null,
+      "language": null,
+      "comment": "Approved"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/Showcase/Images/pages/WebHome/history/2.1",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "pageId": "xwiki:Tidewater.Showcase.Images.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Showcase.Images",
+      "name": "WebHome",
+      "version": "2.1",
+      "majorVersion": 2,
+      "minorVersion": 1,
+      "modified": 1794481698000,
+      "modifier": "xwiki:XWiki.knobas",
+      "modifierName": null,
+      "language": null,
+      "comment": ""
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/Showcase/pages/WebHome/history/2.1",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "pageId": "xwiki:Tidewater.Showcase.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Showcase",
+      "name": "WebHome",
+      "version": "2.1",
+      "majorVersion": 2,
+      "minorVersion": 1,
+      "modified": 1794481698000,
+      "modifier": "xwiki:XWiki.JonasBecker",
+      "modifierName": null,
+      "language": null,
+      "comment": ""
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/Showcase/Changelog/pages/WebHome/history/2.1",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "pageId": "xwiki:Tidewater.Showcase.Changelog.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Showcase.Changelog",
+      "name": "WebHome",
+      "version": "2.1",
+      "majorVersion": 2,
+      "minorVersion": 1,
+      "modified": 1794481698000,
+      "modifier": "xwiki:XWiki.JonasBecker",
+      "modifierName": null,
+      "language": null,
+      "comment": "Review notes"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Outside/pages/WebHome/history/1.1",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "pageId": "xwiki:Outside.WebHome",
+      "wiki": "xwiki",
+      "space": "Outside",
+      "name": "WebHome",
+      "version": "1.1",
+      "majorVersion": 1,
+      "minorVersion": 1,
+      "modified": 1794481698000,
+      "modifier": "xwiki:XWiki.LenaHoffmann",
+      "modifierName": null,
+      "language": null,
+      "comment": ""
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/Showcase/Images/pages/WebHome/history/1.1",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "pageId": "xwiki:Tidewater.Showcase.Images.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Showcase.Images",
+      "name": "WebHome",
+      "version": "1.1",
+      "majorVersion": 1,
+      "minorVersion": 1,
+      "modified": 1794481698000,
+      "modifier": "xwiki:XWiki.knobas",
+      "modifierName": null,
+      "language": null,
+      "comment": ""
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/Showcase/Macros/pages/WebHome/history/1.1",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "pageId": "xwiki:Tidewater.Showcase.Macros.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Showcase.Macros",
+      "name": "WebHome",
+      "version": "1.1",
+      "majorVersion": 1,
+      "minorVersion": 1,
+      "modified": 1794481698000,
+      "modifier": "xwiki:XWiki.knobas",
+      "modifierName": null,
+      "language": null,
+      "comment": ""
+    }
+  ]
+}

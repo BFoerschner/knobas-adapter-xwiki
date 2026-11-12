@@ -1,0 +1,112 @@
+{
+  "links": [
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase",
+      "rel": "http://www.xwiki.org/rel/space",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/pages/WebHome/history",
+      "rel": "http://www.xwiki.org/rel/history",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/pages/WebHome/comments",
+      "rel": "http://www.xwiki.org/rel/comments",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/pages/WebHome/objects",
+      "rel": "http://www.xwiki.org/rel/objects",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/syntaxes",
+      "rel": "http://www.xwiki.org/rel/syntaxes",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/pages/WebHome",
+      "rel": "self",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/classes/Tidewater.Showcase.WebHome",
+      "rel": "http://www.xwiki.org/rel/class",
+      "type": null,
+      "hrefLang": null
+    }
+  ],
+  "id": "xwiki:Tidewater.Showcase.WebHome",
+  "fullName": "Tidewater.Showcase.WebHome",
+  "wiki": "xwiki",
+  "space": "Tidewater.Showcase",
+  "name": "WebHome",
+  "title": "Docs reader showcase",
+  "rawTitle": "Docs reader showcase",
+  "parent": "",
+  "parentId": "",
+  "version": "3.1",
+  "author": "XWiki.MaraLindqvist",
+  "authorName": null,
+  "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/",
+  "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/",
+  "translations": {
+    "links": [],
+    "translations": [],
+    "default": ""
+  },
+  "syntax": "xwiki/2.1",
+  "language": "",
+  "majorVersion": 3,
+  "minorVersion": 1,
+  "hidden": false,
+  "enforceRequiredRights": false,
+  "created": 1794481697000,
+  "creator": "XWiki.knobas",
+  "creatorName": null,
+  "modified": 1794481697000,
+  "modifier": "XWiki.knobas",
+  "modifierName": null,
+  "originalMetadataAuthor": "xwiki:XWiki.MaraLindqvist",
+  "originalMetadataAuthorName": null,
+  "comment": "",
+  "content": "{{toc/}}\n\n= Heading level 1 =\n\nA paragraph with **bold**, //italic//, __underline__, --strikethrough--, ##monospace##, ^^superscript^^ and ,,subscript,,. Nested: **bold with //italic// inside**.\n\nA second paragraph.\nSame paragraph after a single newline.\\\\Forced line break before this.\n\n== Links ==\n\n* Internal link with label: [[SEPA payout retry design>>Tidewater.Engineering.SEPAPayoutRetryDesign.WebHome]]\n* Internal link, no label: [[Tidewater.Engineering.OnCallHandbook.WebHome]]\n* Relative link to a child page: [[Tables>>page:./Tables]]\n* Looks relative, resolves from the wiki root (a missing top-level page): [[Tables>>Tables.WebHome]]\n* Link to a heading on another page: [[header row>>Tidewater.Showcase.Tables.WebHome||anchor=\"HHeaderrow\"]]\n* Link to a page outside the synced space: [[Outside.WebHome]]\n* Link to a page that does not exist: [[Not written yet>>Tidewater.Showcase.DoesNotExist]]\n* External link: [[XWiki syntax guide>>https://www.xwiki.org/xwiki/bin/view/Documentation/UserGuide/Features/XWikiSyntax/]]\n* Bare URL: https://example.com/runbooks\n* Mail link: [[mailto:payments@tidewater.example]]\n* Attachment link: [[the knobas logo>>attach:Tidewater.Showcase.Images.WebHome@knobas-logo.png]]\n\n== Lists ==\n\n=== Unordered, nested ===\n\n* one\n** one.a\n*** one.a.i\n** one.b\n* two\n\n=== Ordered, nested ===\n\n1. first\n11. first.one\n11. first.two\n1. second\n\n=== Mixed ===\n\n1. ordered item\n1*. unordered child\n1*. another unordered child\n1. ordered again\n\n=== Definition list ===\n\n; Term\n: Its definition.\n\n== Other blocks ==\n\n> A quotation.\n>> A nested quotation.\n\n----\n\nInline verbatim: {{{**not bold**}}}\n\n{{{\nVerbatim block,\n  indentation kept.\n}}}\n\nA sentence with a footnote.{{footnote}}The footnote text.{{/footnote}}\n\n==== Heading level 4 ====\n\n===== Heading level 5 =====\n\n====== Heading level 6 ======\n\n== Child pages ==\n\n{{children/}}\n",
+  "clazz": null,
+  "objects": null,
+  "attachments": null,
+  "hierarchy": {
+    "items": [
+      {
+        "label": "xwiki",
+        "name": "xwiki",
+        "type": "wiki",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Main/"
+      },
+      {
+        "label": "Tidewater",
+        "name": "Tidewater",
+        "type": "space",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/"
+      },
+      {
+        "label": "Showcase",
+        "name": "Showcase",
+        "type": "space",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/"
+      },
+      {
+        "label": "WebHome",
+        "name": "WebHome",
+        "type": "document",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/"
+      }
+    ]
+  }
+}

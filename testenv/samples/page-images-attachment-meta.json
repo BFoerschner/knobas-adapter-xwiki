@@ -1,0 +1,75 @@
+{
+  "links": [
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Images/pages/WebHome",
+      "rel": "http://www.xwiki.org/rel/page",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Images/pages/WebHome/attachments/knobas-logo.png",
+      "rel": "http://www.xwiki.org/rel/attachmentData",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Images/pages/WebHome/attachments/knobas-logo.png/metadata",
+      "rel": "http://www.xwiki.org/rel/attachmentMetadata",
+      "type": null,
+      "hrefLang": null
+    }
+  ],
+  "id": "xwiki:Tidewater.Showcase.Images.WebHome@knobas-logo.png",
+  "name": "knobas-logo.png",
+  "size": 12900,
+  "longSize": 12900,
+  "version": "1.1",
+  "pageId": "xwiki:Tidewater.Showcase.Images.WebHome",
+  "pageVersion": "2.1",
+  "mimeType": "image/png",
+  "author": "XWiki.knobas",
+  "authorName": null,
+  "date": 1794481698000,
+  "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/download/Tidewater/Showcase/Images/WebHome/knobas-logo.png?rev=1.1",
+  "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/download/Tidewater/Showcase/Images/WebHome/knobas-logo.png?rev=1.1",
+  "hierarchy": {
+    "items": [
+      {
+        "label": "xwiki",
+        "name": "xwiki",
+        "type": "wiki",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Main/"
+      },
+      {
+        "label": "Tidewater",
+        "name": "Tidewater",
+        "type": "space",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/"
+      },
+      {
+        "label": "Showcase",
+        "name": "Showcase",
+        "type": "space",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/"
+      },
+      {
+        "label": "Images",
+        "name": "Images",
+        "type": "space",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Images/"
+      },
+      {
+        "label": "WebHome",
+        "name": "WebHome",
+        "type": "document",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Images/"
+      },
+      {
+        "label": "knobas-logo.png",
+        "name": "knobas-logo.png",
+        "type": "attachment",
+        "url": "http://127.0.0.1:8099/xwiki/bin/download/Tidewater/Showcase/Images/WebHome/knobas-logo.png?rev=1.1"
+      }
+    ]
+  }
+}

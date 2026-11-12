@@ -1,0 +1,226 @@
+#!/usr/bin/env python3
+"""Record real XWiki responses into testenv/samples/ (run after testenv/seed).
+
+    testenv/record-samples
+
+Each sample is the response body (JSON pretty-printed, HTML/text as served).
+samples/_requests.txt lists every file with the request that produced it and
+the status. A few `*.headers.txt` files hold response headers. The PUT/POST
+samples write to a throwaway page `Sandbox.KnobasRestProbe` and delete it
+afterwards; nothing seeded is changed.
+"""
+
+import base64
+import json
+import os
+import re
+import sys
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+OUT = HERE / "samples"
+BASE = os.environ.get("XWIKI_URL", "http://127.0.0.1:8099/xwiki").rstrip("/")
+REST = BASE + "/rest/wikis/xwiki"
+ADMIN = ("knobas", "knobas-dev")
+
+log = []
+
+
+class NoRedirect(urllib.request.HTTPRedirectHandler):
+    def redirect_request(self, *args, **kwargs):
+        return None  # record the 302 itself, as an adapter without redirect-following sees it
+
+
+OPENER = urllib.request.build_opener(NoRedirect)
+
+
+def call(method, url, auth=ADMIN, body=None, content_type=None, accept=None, extra=None):
+    headers = dict(extra or {})
+    if auth:
+        headers["Authorization"] = "Basic " + base64.b64encode(f"{auth[0]}:{auth[1]}".encode()).decode()
+    if accept:
+        headers["Accept"] = accept
+    data = None
+    if body is not None:
+        data = body if isinstance(body, bytes) else (json.dumps(body) if isinstance(body, dict) else body).encode()
+        headers["Content-Type"] = content_type or "application/json"
+    req = urllib.request.Request(url, data=data, method=method, headers=headers)
+    try:
+        with OPENER.open(req, timeout=120) as r:
+            return r.status, dict(r.headers), r.read()
+    except urllib.error.HTTPError as e:
+        return e.code, dict(e.headers), e.read()
+
+
+def save(name, method, url, auth=ADMIN, headers_file=False, note="", **kw):
+    status, headers, raw = call(method, url, auth=auth, **kw)
+    ctype = headers.get("Content-Type", "")
+    path = OUT / name
+    if "json" in ctype:
+        try:
+            raw = (json.dumps(json.loads(raw), indent=2, ensure_ascii=False) + "\n").encode()
+        except ValueError:
+            pass
+    path.write_bytes(raw)
+    if headers_file:
+        # Session cookies and CSRF tokens are kept out of the repository.
+        def shown(k, v):
+            if k.lower() == "xwiki-form-token":
+                return "<redacted>"
+            if k.lower() == "set-cookie":
+                return re.sub(r"(JSESSIONID=)[^;]+", r"\1<redacted>", v)
+            return v
+        hdr = f"HTTP {status}\n" + "".join(f"{k}: {shown(k, v)}\n" for k, v in sorted(headers.items()))
+        (OUT / (Path(name).stem + ".headers.txt")).write_text(hdr)
+    who = auth[0] if auth else "guest"
+    extra = f"  ({note})" if note else ""
+    log.append(f"{name}\n    {method} {url.replace(BASE, '{BASE}')}  as {who} -> {status} {ctype}{extra}\n")
+    print(f"  {status} {name}")
+    return status, headers, raw
+
+
+def page(space_path, name):
+    return REST + "/" + "/".join("spaces/" + urllib.parse.quote(s, safe="") for s in space_path.split(".")) \
+        + "/pages/" + urllib.parse.quote(name, safe="")
+
+
+def bin_get(ref_path, syntax):
+    return f"{BASE}/bin/get/{ref_path}?xpage=plain&outputSyntax={syntax}"
+
+
+def main():
+    OUT.mkdir(exist_ok=True)
+    J = "?media=json"
+
+    # A cut-off inside the seed run: the Images page's last-modified time, so the
+    # "since" samples hold some pages and not others whenever the seed ran.
+    _, _, raw = call("GET", page("Tidewater.Showcase.Images", "WebHome") + J)
+    since_ms = json.loads(raw)["modified"]
+    since_iso = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(since_ms / 1000))
+
+    # --- server, auth
+    save("rest-root.json", "GET", BASE + "/rest/" + J, headers_file=True)
+    save("rest-root-guest.json", "GET", BASE + "/rest/" + J, auth=None, headers_file=True,
+         note="no Authorization: no XWiki-User header")
+    save("rest-root-bad-password.json", "GET", BASE + "/rest/" + J, auth=("knobas", "wrong"), headers_file=True,
+         note="wrong password: /rest/ itself is not view-checked, so 200 as guest, no XWiki-User header")
+    save("rest-client.json", "GET", BASE + "/rest/client" + J)
+
+    # --- listings
+    save("spaces-Tidewater-pages.json", "GET", REST + "/spaces/Tidewater/pages" + J,
+         note="only pages whose space is exactly Tidewater")
+    save("spaces-Tidewater-Engineering-pages.json", "GET", REST + "/spaces/Tidewater/spaces/Engineering/pages" + J)
+    save("spaces-Tidewater-Engineering-StandupProtocols-pages.json", "GET",
+         REST + "/spaces/Tidewater/spaces/Engineering/spaces/StandupProtocols/pages" + J,
+         note="WebHome plus the terminal page DailyProtocol20260821")
+    save("wiki-spaces.json", "GET", REST + "/spaces" + J + "&number=200", note="every space, nested ones included")
+    save("wiki-pages-space-Tidewater.json", "GET", REST + "/pages" + J + "&space=Tidewater",
+         note="recursive, but `space` is a substring match (LIKE %Tidewater%)")
+    save("wiki-pages-space-Tidewater-start0-number5.json", "GET", REST + "/pages" + J + "&space=Tidewater&start=0&number=5")
+    save("wiki-pages-space-Tidewater-start5-number5.json", "GET", REST + "/pages" + J + "&space=Tidewater&start=5&number=5")
+    save("children-Tidewater-Engineering-nestedpages.json", "GET",
+         page("Tidewater.Engineering", "WebHome") + "/children" + J + "&hierarchy=nestedpages",
+         note="direct children only")
+    save("query-solr-space_prefix-Tidewater.json", "GET",
+         REST + "/query" + J + "&type=solr&number=100&q=" + urllib.parse.quote('type:DOCUMENT AND space_prefix:"Tidewater"'),
+         note="recursive, exact space prefix; carries modified/version/author")
+    save("query-solr-modified-since.json", "GET",
+         REST + "/query" + J + "&type=solr&number=100&orderField=date&order=desc&q="
+         + urllib.parse.quote(f'type:DOCUMENT AND space_prefix:"Tidewater" AND date:[{since_iso} TO *]'),
+         note=f"modified at or after {since_iso}; ISO date range works, a millisecond range is ignored")
+    save("query-hql-refused.txt", "GET",
+         REST + "/query" + J + "&type=hql&q=" + urllib.parse.quote("where doc.space like 'Tidewater%'"),
+         note="rest.allowedQueryTypes defaults to solr")
+    save("modifications-since.json", "GET", REST + "/modifications" + J + f"&number=20&date={since_ms}",
+         note=f"date={since_ms} ({since_iso}): wiki-wide, one row per version, strictly after `date`, newest first")
+    save("modifications-first-page.json", "GET", REST + "/modifications" + J + "&start=0&number=10")
+    save("tags-wiki.json", "GET", REST + "/tags" + J)
+    save("tags-pages-with-tag-sepa.json", "GET", REST + "/tags/sepa" + J)
+
+    # --- one page, every facet
+    sepa = page("Tidewater.Engineering.SEPAPayoutRetryDesign", "WebHome")
+    save("page-sepa.json", "GET", sepa + J, headers_file=True)
+    save("page-sepa-prettynames-objects-attachments.json", "GET",
+         sepa + J + "&prettyNames=true&objects=true&attachments=true")
+    save("page-sepa.xml", "GET", sepa, note="no media/Accept: XML")
+    save("page-sepa-comments.json", "GET", sepa + "/comments" + J)
+    save("page-sepa-objects-XWikiComments.json", "GET", sepa + "/objects/XWiki.XWikiComments" + J)
+    save("page-sepa-object-XWikiComments-0.json", "GET", sepa + "/objects/XWiki.XWikiComments/0" + J)
+    save("page-sepa-objects.json", "GET", sepa + "/objects" + J)
+    save("page-sepa-tags.json", "GET", sepa + "/tags" + J)
+    save("page-sepa-history.json", "GET", sepa + "/history" + J)
+    save("page-daily-protocol-terminal.json", "GET", page("Tidewater.Engineering.StandupProtocols", "DailyProtocol20260821") + J)
+    save("page-missing-404.txt", "GET", page("Tidewater", "NoSuchPage") + J)
+
+    changelog = page("Tidewater.Showcase.Changelog", "WebHome")
+    save("page-changelog.json", "GET", changelog + J)
+    save("page-changelog-history.json", "GET", changelog + "/history" + J)
+    save("page-changelog-history-2.1.json", "GET", changelog + "/history/2.1" + J, note="the page as of version 2.1")
+
+    showcase = page("Tidewater.Showcase", "WebHome")
+    save("page-showcase-home.json", "GET", showcase + J)
+    save("page-showcase-home-comments.json", "GET", showcase + "/comments" + J, note="second comment is a reply")
+    save("page-showcase-home-object-XWikiComments-1.json", "GET", showcase + "/objects/XWiki.XWikiComments/1" + J)
+    save("page-macros.json", "GET", page("Tidewater.Showcase.Macros", "WebHome") + J)
+    images = page("Tidewater.Showcase.Images", "WebHome")
+    save("page-images.json", "GET", images + J)
+    save("page-images-attachments.json", "GET", images + "/attachments" + J)
+    save("page-images-attachment-meta.json", "GET", images + "/attachments/knobas-logo.png/metadata" + J)
+    save("user-MaraLindqvist-XWikiUsers.json", "GET", page("XWiki", "MaraLindqvist") + "/objects/XWiki.XWikiUsers/0" + J,
+         note="password is never returned")
+
+    # --- rendered content (bin/get, not REST)
+    for ref, stem in [("Tidewater/Showcase/WebHome", "showcase-home"),
+                      ("Tidewater/Showcase/Tables/WebHome", "showcase-tables"),
+                      ("Tidewater/Showcase/Macros/WebHome", "showcase-macros"),
+                      ("Tidewater/Showcase/Images/WebHome", "showcase-images"),
+                      ("Tidewater/Showcase/Changelog/WebHome", "showcase-changelog"),
+                      ("Tidewater/Engineering/SEPAPayoutRetryDesign/WebHome", "sepa")]:
+        save(f"rendered-{stem}.html", "GET", bin_get(ref, "html"), accept="text/html")
+        save(f"rendered-{stem}.annotated.html", "GET", bin_get(ref, "annotatedhtml"), accept="text/html")
+    save("rendered-showcase-macros.as-guest.html", "GET", bin_get("Tidewater/Showcase/Macros/WebHome", "html"),
+         auth=None, accept="text/html", note="guests may not view: 302 to the login page")
+    save("page-sepa-as-guest.txt", "GET", sepa + J, auth=None, note="guests may not view: 401")
+    save("page-sepa-bad-password.txt", "GET", sepa + J, auth=("knobas", "not-the-password"), headers_file=True,
+         note="wrong password: 401, no XWiki-User header")
+    save("rendered-changelog-rev-1.1.html", "GET",
+         f"{BASE}/bin/get/Tidewater/Showcase/Changelog/WebHome?xpage=plain&outputSyntax=html&rev=1.1",
+         accept="text/html", note="an old version, rendered")
+    save("rendered-sepa-view-full.html", "GET", f"{BASE}/bin/view/Tidewater/Engineering/SEPAPayoutRetryDesign/",
+         accept="text/html", note="the full skinned page, for comparison")
+
+    # --- writes, on a throwaway page
+    probe = page("Sandbox", "KnobasRestProbe")
+    save("put-page-json-create.json", "PUT", probe + J,
+         body={"title": "REST probe", "syntax": "xwiki/2.1", "content": "Created by **record-samples**.",
+               "comment": "probe create"},
+         note="JSON body, no form token needed -> 201")
+    save("put-page-json-update.json", "PUT", probe + J,
+         body={"title": "REST probe", "content": "Updated by **record-samples**.", "comment": "probe update"},
+         note="-> 202")
+    save("put-page-form-no-token.json", "PUT", probe + J,
+         body="title=REST+probe&content=Form+update", content_type="application/x-www-form-urlencoded",
+         note="PUT with a form body is accepted without XWiki-Form-Token")
+    save("post-comment-form-no-token.txt", "POST", probe + "/comments" + J,
+         body="text=hello", content_type="application/x-www-form-urlencoded",
+         note="POST with a form/text body without XWiki-Form-Token -> 403")
+    _, hdrs, _ = call("GET", BASE + "/rest/" + J)
+    token = hdrs.get("XWiki-Form-Token", "")
+    save("post-comment-form-with-token.json", "POST", probe + "/comments" + J,
+         body="text=hello", content_type="application/x-www-form-urlencoded", extra={"XWiki-Form-Token": token},
+         note="same POST with the XWiki-Form-Token header from any authenticated GET -> 201")
+    save("post-comment-json.json", "POST", probe + "/comments" + J, body={"text": "hello as JSON"},
+         note="JSON body needs no token")
+    save("delete-page.txt", "DELETE", probe, note="-> 204")
+
+    (OUT / "_requests.txt").write_text(
+        "Recorded by testenv/record-samples. {BASE} = " + BASE + "\n\n" + "\n".join(log))
+    print(f"record-samples: {len(log)} samples in {OUT}")
+
+
+if __name__ == "__main__":
+    main()

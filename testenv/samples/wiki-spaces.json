@@ -1,0 +1,901 @@
+{
+  "links": [],
+  "spaces": [
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Help",
+      "wiki": "xwiki",
+      "name": "Help",
+      "home": "xwiki:Help.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Applications/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Applications/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Applications/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Help.Applications",
+      "wiki": "xwiki",
+      "name": "Applications",
+      "home": "xwiki:Help.Applications.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Applications/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Applications/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Applications/spaces/Contributors/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Applications/spaces/Contributors/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Applications/spaces/Contributors/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Help.Applications.Contributors",
+      "wiki": "xwiki",
+      "name": "Contributors",
+      "home": "xwiki:Help.Applications.Contributors.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Applications/Contributors/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Applications/Contributors/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Applications/spaces/Movies/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Applications/spaces/Movies/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Applications/spaces/Movies/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Help.Applications.Movies",
+      "wiki": "xwiki",
+      "name": "Movies",
+      "home": "xwiki:Help.Applications.Movies.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Applications/Movies/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Applications/Movies/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Macros/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Macros/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Macros/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Help.Macros",
+      "wiki": "xwiki",
+      "name": "Macros",
+      "home": "xwiki:Help.Macros.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Macros/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Macros/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Macros/spaces/Box/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Macros/spaces/Box/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Macros/spaces/Box/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Help.Macros.Box",
+      "wiki": "xwiki",
+      "name": "Box",
+      "home": "xwiki:Help.Macros.Box.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Macros/Box/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Macros/Box/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Macros/spaces/Chart/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Macros/spaces/Chart/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Macros/spaces/Chart/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Help.Macros.Chart",
+      "wiki": "xwiki",
+      "name": "Chart",
+      "home": "xwiki:Help.Macros.Chart.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Macros/Chart/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Macros/Chart/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Macros/spaces/Gallery/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Macros/spaces/Gallery/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Macros/spaces/Gallery/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Help.Macros.Gallery",
+      "wiki": "xwiki",
+      "name": "Gallery",
+      "home": "xwiki:Help.Macros.Gallery.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Macros/Gallery/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Macros/Gallery/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Macros/spaces/Notifications/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Macros/spaces/Notifications/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Macros/spaces/Notifications/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Help.Macros.Notifications",
+      "wiki": "xwiki",
+      "name": "Notifications",
+      "home": "xwiki:Help.Macros.Notifications.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Macros/Notifications/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Macros/Notifications/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Macros/spaces/ToC/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Macros/spaces/ToC/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Macros/spaces/ToC/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Help.Macros.ToC",
+      "wiki": "xwiki",
+      "name": "ToC",
+      "home": "xwiki:Help.Macros.ToC.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Macros/ToC/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Macros/ToC/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Macros/spaces/Tree/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Macros/spaces/Tree/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Macros/spaces/Tree/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Help.Macros.Tree",
+      "wiki": "xwiki",
+      "name": "Tree",
+      "home": "xwiki:Help.Macros.Tree.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Macros/Tree/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Macros/Tree/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Templates/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Templates/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Templates/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Help.Templates",
+      "wiki": "xwiki",
+      "name": "Templates",
+      "home": "xwiki:Help.Templates.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Templates/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Templates/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Videos/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Videos/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Help/spaces/Videos/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Help.Videos",
+      "wiki": "xwiki",
+      "name": "Videos",
+      "home": "xwiki:Help.Videos.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Videos/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Help/Videos/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Main/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Main/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Main/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Main",
+      "wiki": "xwiki",
+      "name": "Main",
+      "home": "xwiki:Main.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Main/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Main/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Menu/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Menu/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Menu/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Menu",
+      "wiki": "xwiki",
+      "name": "Menu",
+      "home": "xwiki:Menu.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Menu/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Menu/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Outside/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Outside/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Outside/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Outside",
+      "wiki": "xwiki",
+      "name": "Outside",
+      "home": "xwiki:Outside.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Outside/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Outside/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Outside/spaces/ProductRoadmap/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Outside/spaces/ProductRoadmap/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Outside/spaces/ProductRoadmap/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Outside.ProductRoadmap",
+      "wiki": "xwiki",
+      "name": "ProductRoadmap",
+      "home": "xwiki:Outside.ProductRoadmap.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Outside/ProductRoadmap/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Outside/ProductRoadmap/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Sandbox/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Sandbox/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Sandbox/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Sandbox",
+      "wiki": "xwiki",
+      "name": "Sandbox",
+      "home": "xwiki:Sandbox.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Sandbox/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Sandbox/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater",
+      "wiki": "xwiki",
+      "name": "Tidewater",
+      "home": "xwiki:Tidewater.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Engineering",
+      "wiki": "xwiki",
+      "name": "Engineering",
+      "home": "xwiki:Tidewater.Engineering.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/LedgerReconciliationRunbook/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/LedgerReconciliationRunbook/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/LedgerReconciliationRunbook/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Engineering.LedgerReconciliationRunbook",
+      "wiki": "xwiki",
+      "name": "LedgerReconciliationRunbook",
+      "home": "xwiki:Tidewater.Engineering.LedgerReconciliationRunbook.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/LedgerReconciliationRunbook/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/LedgerReconciliationRunbook/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/OnCallHandbook/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/OnCallHandbook/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/OnCallHandbook/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Engineering.OnCallHandbook",
+      "wiki": "xwiki",
+      "name": "OnCallHandbook",
+      "home": "xwiki:Tidewater.Engineering.OnCallHandbook.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/OnCallHandbook/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/OnCallHandbook/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/PaymentsArchitectureOverview/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/PaymentsArchitectureOverview/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/PaymentsArchitectureOverview/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Engineering.PaymentsArchitectureOverview",
+      "wiki": "xwiki",
+      "name": "PaymentsArchitectureOverview",
+      "home": "xwiki:Tidewater.Engineering.PaymentsArchitectureOverview.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/PaymentsArchitectureOverview/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/PaymentsArchitectureOverview/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Engineering.SEPAPayoutRetryDesign",
+      "wiki": "xwiki",
+      "name": "SEPAPayoutRetryDesign",
+      "home": "xwiki:Tidewater.Engineering.SEPAPayoutRetryDesign.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/SEPAPayoutRetryDesign/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/SEPAPayoutRetryDesign/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/StandupProtocols/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/StandupProtocols/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/StandupProtocols/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Engineering.StandupProtocols",
+      "wiki": "xwiki",
+      "name": "StandupProtocols",
+      "home": "xwiki:Tidewater.Engineering.StandupProtocols.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/StandupProtocols/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/StandupProtocols/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Showcase",
+      "wiki": "xwiki",
+      "name": "Showcase",
+      "home": "xwiki:Tidewater.Showcase.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Changelog/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Changelog/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Changelog/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Showcase.Changelog",
+      "wiki": "xwiki",
+      "name": "Changelog",
+      "home": "xwiki:Tidewater.Showcase.Changelog.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Changelog/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Changelog/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Images/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Images/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Images/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Showcase.Images",
+      "wiki": "xwiki",
+      "name": "Images",
+      "home": "xwiki:Tidewater.Showcase.Images.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Images/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Images/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/IncludedSnippet/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/IncludedSnippet/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/IncludedSnippet/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Showcase.IncludedSnippet",
+      "wiki": "xwiki",
+      "name": "IncludedSnippet",
+      "home": "xwiki:Tidewater.Showcase.IncludedSnippet.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/IncludedSnippet/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/IncludedSnippet/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Macros/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Macros/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Macros/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Showcase.Macros",
+      "wiki": "xwiki",
+      "name": "Macros",
+      "home": "xwiki:Tidewater.Showcase.Macros.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Macros/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Macros/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Tables/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Tables/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Tables/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Showcase.Tables",
+      "wiki": "xwiki",
+      "name": "Tables",
+      "home": "xwiki:Tidewater.Showcase.Tables.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Tables/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Tables/"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages",
+          "rel": "http://www.xwiki.org/rel/pages",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/home",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/search",
+          "rel": "http://www.xwiki.org/rel/search",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:XWiki",
+      "wiki": "xwiki",
+      "name": "XWiki",
+      "home": "xwiki:XWiki.WebHome",
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/XWiki/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/XWiki/"
+    }
+  ]
+}

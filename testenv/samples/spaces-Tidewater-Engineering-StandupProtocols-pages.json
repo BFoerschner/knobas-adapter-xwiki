@@ -1,0 +1,101 @@
+{
+  "links": [],
+  "pageSummaries": [
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/StandupProtocols",
+          "rel": "http://www.xwiki.org/rel/space",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/StandupProtocols/pages/DailyProtocol20260821/history",
+          "rel": "http://www.xwiki.org/rel/history",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/syntaxes",
+          "rel": "http://www.xwiki.org/rel/syntaxes",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/StandupProtocols/pages/DailyProtocol20260821",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Engineering.StandupProtocols.DailyProtocol20260821",
+      "fullName": "Tidewater.Engineering.StandupProtocols.DailyProtocol20260821",
+      "wiki": "xwiki",
+      "space": "Tidewater.Engineering.StandupProtocols",
+      "name": "DailyProtocol20260821",
+      "title": "Daily protocol 2026-08-21",
+      "rawTitle": "Daily protocol 2026-08-21",
+      "parent": "",
+      "parentId": "",
+      "version": "1.1",
+      "author": "XWiki.MaraLindqvist",
+      "authorName": null,
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/StandupProtocols/DailyProtocol20260821",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/StandupProtocols/DailyProtocol20260821",
+      "translations": {
+        "links": [],
+        "translations": [],
+        "default": ""
+      },
+      "syntax": "xwiki/2.1"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/StandupProtocols",
+          "rel": "http://www.xwiki.org/rel/space",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/StandupProtocols/pages/WebHome/history",
+          "rel": "http://www.xwiki.org/rel/history",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/syntaxes",
+          "rel": "http://www.xwiki.org/rel/syntaxes",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/StandupProtocols/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Engineering.StandupProtocols.WebHome",
+      "fullName": "Tidewater.Engineering.StandupProtocols.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Engineering.StandupProtocols",
+      "name": "WebHome",
+      "title": "Standup protocols",
+      "rawTitle": "Standup protocols",
+      "parent": "",
+      "parentId": "",
+      "version": "1.1",
+      "author": "XWiki.MaraLindqvist",
+      "authorName": null,
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/StandupProtocols/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/StandupProtocols/",
+      "translations": {
+        "links": [],
+        "translations": [],
+        "default": ""
+      },
+      "syntax": "xwiki/2.1"
+    }
+  ]
+}

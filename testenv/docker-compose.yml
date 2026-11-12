@@ -1,0 +1,67 @@
+# XWiki test backend for the knobas XWiki adapter. Runs on the knobas-wsl box:
+#
+#   DOCKER_HOST=ssh://knobas-wsl docker compose -f testenv/docker-compose.yml up -d --build
+#
+# Pinned images (resolved 2026-11-12):
+#   xwiki:17.10.15-postgres-tomcat  sha256:3dd6f6642f98ff31c330d513e9801aafafc22c9b5573e68951bf82d839d7256e  (in xwiki-image/Dockerfile)
+#   postgres:17.11-alpine           sha256:e5d2edd28b1f8d40a0a6c0c9cdc545b19b56a0d5d88f94bc11a97d970d4700d0
+name: knobas-xwiki
+
+services:
+  db:
+    image: postgres@sha256:e5d2edd28b1f8d40a0a6c0c9cdc545b19b56a0d5d88f94bc11a97d970d4700d0
+    container_name: knobas-xwiki-db
+    restart: unless-stopped
+    mem_limit: 512m
+    environment:
+      POSTGRES_USER: xwiki
+      POSTGRES_PASSWORD: xwiki-dev
+      POSTGRES_DB: xwiki
+      POSTGRES_INITDB_ARGS: "--encoding=UTF8"
+    volumes:
+      - db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U xwiki -d xwiki"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  web:
+    build: ./xwiki-image
+    image: knobas-xwiki-web:17.10.15
+    container_name: knobas-xwiki-web
+    restart: unless-stopped
+    # Heap 1 GB. With heap 1.25 GB the JVM's resident size reached 1.9 GB during
+    # the flavor install (metaspace, embedded Solr, threads), so a 2 GB cap left
+    # no headroom.
+    mem_limit: 2560m
+    # Reaps the healthcheck's curl processes (tomcat is PID 1 otherwise).
+    init: true
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_USER: xwiki
+      DB_PASSWORD: xwiki-dev
+      DB_DATABASE: xwiki
+      DB_HOST: knobas-xwiki-db
+      # Serve under /xwiki like a stock install (the image default is ROOT).
+      CONTEXT_PATH: xwiki
+      JAVA_OPTS: "-Xmx1024m -XX:MaxMetaspaceSize=384m"
+      XWIKI_SUPERADMIN_PASSWORD: knobas-superadmin
+    ports:
+      - "127.0.0.1:8099:8080"
+    volumes:
+      - data:/usr/local/xwiki
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS -o /dev/null http://localhost:8080/xwiki/rest/ || exit 1"]
+      interval: 15s
+      timeout: 10s
+      retries: 40
+      start_period: 120s
+
+volumes:
+  db:
+    name: knobas-xwiki-db
+  data:
+    name: knobas-xwiki-data

@@ -1,0 +1,14 @@
+[package]
+name = "check"
+edition.workspace = true
+version.workspace = true
+publish = false
+
+# The author's local gate, run on the host: loads the built component with
+# knobas' own WASM host and holds it to everything knobas holds it to at
+# install and at first sync. `cargo run -p check -- --help`.
+[dependencies]
+knobas-wasm-host.workspace = true
+knobas-source.workspace = true
+serde_json.workspace = true
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "time"] }

@@ -1,0 +1,41 @@
+{
+  "links": [],
+  "comments": [
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": 0,
+      "pageId": null,
+      "author": "XWiki.JonasBecker",
+      "authorName": null,
+      "date": 1787217300000,
+      "highlight": "",
+      "text": "Does the reader keep the footnote?",
+      "replyTo": null
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": 1,
+      "pageId": null,
+      "author": "XWiki.MaraLindqvist",
+      "authorName": null,
+      "date": 1787220120000,
+      "highlight": "",
+      "text": "It should, as a numbered note at the end.",
+      "replyTo": 0
+    }
+  ]
+}

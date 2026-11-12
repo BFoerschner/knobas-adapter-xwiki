@@ -1,0 +1,135 @@
+{
+  "links": [],
+  "pageSummaries": [
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/StandupProtocols/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Engineering.StandupProtocols.WebHome",
+      "fullName": "Tidewater.Engineering.StandupProtocols.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Engineering.StandupProtocols",
+      "name": "WebHome",
+      "title": "Standup protocols",
+      "rawTitle": null,
+      "parent": "",
+      "parentId": null,
+      "version": null,
+      "author": null,
+      "authorName": null,
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/StandupProtocols/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/StandupProtocols/",
+      "translations": null,
+      "syntax": null
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Engineering.WebHome",
+      "fullName": "Tidewater.Engineering.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Engineering",
+      "name": "WebHome",
+      "title": "Engineering",
+      "rawTitle": null,
+      "parent": "",
+      "parentId": null,
+      "version": null,
+      "author": null,
+      "authorName": null,
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/",
+      "translations": null,
+      "syntax": null
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Changelog/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Showcase.Changelog.WebHome",
+      "fullName": "Tidewater.Showcase.Changelog.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Showcase.Changelog",
+      "name": "WebHome",
+      "title": "Changelog (several versions)",
+      "rawTitle": null,
+      "parent": "",
+      "parentId": null,
+      "version": null,
+      "author": null,
+      "authorName": null,
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Changelog/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Changelog/",
+      "translations": null,
+      "syntax": null
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Images/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Showcase.Images.WebHome",
+      "fullName": "Tidewater.Showcase.Images.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Showcase.Images",
+      "name": "WebHome",
+      "title": "Images",
+      "rawTitle": null,
+      "parent": "",
+      "parentId": null,
+      "version": null,
+      "author": null,
+      "authorName": null,
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Images/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Images/",
+      "translations": null,
+      "syntax": null
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/IncludedSnippet/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Showcase.IncludedSnippet.WebHome",
+      "fullName": "Tidewater.Showcase.IncludedSnippet.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Showcase.IncludedSnippet",
+      "name": "WebHome",
+      "title": "Included snippet",
+      "rawTitle": null,
+      "parent": "",
+      "parentId": null,
+      "version": null,
+      "author": null,
+      "authorName": null,
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/IncludedSnippet/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/IncludedSnippet/",
+      "translations": null,
+      "syntax": null
+    }
+  ]
+}

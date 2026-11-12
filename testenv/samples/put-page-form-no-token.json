@@ -1,0 +1,94 @@
+{
+  "links": [
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Sandbox",
+      "rel": "http://www.xwiki.org/rel/space",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Sandbox/pages/KnobasRestProbe/history",
+      "rel": "http://www.xwiki.org/rel/history",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/syntaxes",
+      "rel": "http://www.xwiki.org/rel/syntaxes",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Sandbox/pages/KnobasRestProbe",
+      "rel": "self",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/classes/Sandbox.KnobasRestProbe",
+      "rel": "http://www.xwiki.org/rel/class",
+      "type": null,
+      "hrefLang": null
+    }
+  ],
+  "id": "xwiki:Sandbox.KnobasRestProbe",
+  "fullName": "Sandbox.KnobasRestProbe",
+  "wiki": "xwiki",
+  "space": "Sandbox",
+  "name": "KnobasRestProbe",
+  "title": "REST probe",
+  "rawTitle": "REST probe",
+  "parent": "",
+  "parentId": "",
+  "version": "3.1",
+  "author": "XWiki.knobas",
+  "authorName": null,
+  "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Sandbox/KnobasRestProbe",
+  "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Sandbox/KnobasRestProbe",
+  "translations": {
+    "links": [],
+    "translations": [],
+    "default": ""
+  },
+  "syntax": "xwiki/2.1",
+  "language": "",
+  "majorVersion": 3,
+  "minorVersion": 1,
+  "hidden": false,
+  "enforceRequiredRights": false,
+  "created": 1794481712000,
+  "creator": "XWiki.knobas",
+  "creatorName": null,
+  "modified": 1794481713000,
+  "modifier": "XWiki.knobas",
+  "modifierName": null,
+  "originalMetadataAuthor": "xwiki:XWiki.knobas",
+  "originalMetadataAuthorName": null,
+  "comment": "",
+  "content": "Form update",
+  "clazz": null,
+  "objects": null,
+  "attachments": null,
+  "hierarchy": {
+    "items": [
+      {
+        "label": "xwiki",
+        "name": "xwiki",
+        "type": "wiki",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Main/"
+      },
+      {
+        "label": "Sandbox",
+        "name": "Sandbox",
+        "type": "space",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Sandbox/"
+      },
+      {
+        "label": "KnobasRestProbe",
+        "name": "KnobasRestProbe",
+        "type": "document",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Sandbox/KnobasRestProbe"
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+HTTP 200
+Connection: close
+Content-Language: en
+Content-Length: 3534
+Content-Script-Type: text/javascript
+Content-Type: application/json;charset=UTF-8
+Date: Thu, 12 Nov 2026 11:08:28 GMT
+Set-Cookie: JSESSIONID=<redacted>; Path=/xwiki; HttpOnly
+XWiki-Form-Token: <redacted>
+XWiki-User: xwiki:XWiki.knobas
+XWiki-Version: 17.10.15

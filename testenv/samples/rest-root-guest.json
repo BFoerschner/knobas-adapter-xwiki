@@ -1,0 +1,24 @@
+{
+  "links": [
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis",
+      "rel": "http://www.xwiki.org/rel/wikis",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/syntaxes",
+      "rel": "http://www.xwiki.org/rel/syntaxes",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/client",
+      "rel": "http://www.xwiki.org/rel/client",
+      "type": null,
+      "hrefLang": null
+    }
+  ],
+  "version": "17.10.15",
+  "syntaxes": null
+}

@@ -1,0 +1,53 @@
+{
+  "links": [],
+  "pageSummaries": [
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater",
+          "rel": "http://www.xwiki.org/rel/space",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/pages/WebHome/history",
+          "rel": "http://www.xwiki.org/rel/history",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/syntaxes",
+          "rel": "http://www.xwiki.org/rel/syntaxes",
+          "type": null,
+          "hrefLang": null
+        },
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.WebHome",
+      "fullName": "Tidewater.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater",
+      "name": "WebHome",
+      "title": "Tidewater",
+      "rawTitle": "Tidewater",
+      "parent": "",
+      "parentId": "",
+      "version": "1.1",
+      "author": "XWiki.PriyaNair",
+      "authorName": null,
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/",
+      "translations": {
+        "links": [],
+        "translations": [],
+        "default": ""
+      },
+      "syntax": "xwiki/2.1"
+    }
+  ]
+}

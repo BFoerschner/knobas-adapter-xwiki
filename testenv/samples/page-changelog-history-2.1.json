@@ -1,0 +1,106 @@
+{
+  "links": [
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Changelog",
+      "rel": "http://www.xwiki.org/rel/space",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Changelog/pages/WebHome/history",
+      "rel": "http://www.xwiki.org/rel/history",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/syntaxes",
+      "rel": "http://www.xwiki.org/rel/syntaxes",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Changelog/pages/WebHome/history/2.1",
+      "rel": "self",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/classes/Tidewater.Showcase.Changelog.WebHome",
+      "rel": "http://www.xwiki.org/rel/class",
+      "type": null,
+      "hrefLang": null
+    }
+  ],
+  "id": "xwiki:Tidewater.Showcase.Changelog.WebHome",
+  "fullName": "Tidewater.Showcase.Changelog.WebHome",
+  "wiki": "xwiki",
+  "space": "Tidewater.Showcase.Changelog",
+  "name": "WebHome",
+  "title": "Changelog (several versions)",
+  "rawTitle": "Changelog (several versions)",
+  "parent": "",
+  "parentId": "",
+  "version": "2.1",
+  "author": "XWiki.JonasBecker",
+  "authorName": null,
+  "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Changelog/",
+  "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Changelog/",
+  "translations": {
+    "links": [],
+    "translations": [],
+    "default": ""
+  },
+  "syntax": "xwiki/2.1",
+  "language": "",
+  "majorVersion": 2,
+  "minorVersion": 1,
+  "hidden": false,
+  "enforceRequiredRights": false,
+  "created": 1794481698000,
+  "creator": "XWiki.MaraLindqvist",
+  "creatorName": null,
+  "modified": 1794481698000,
+  "modifier": "XWiki.JonasBecker",
+  "modifierName": null,
+  "originalMetadataAuthor": "xwiki:XWiki.JonasBecker",
+  "originalMetadataAuthorName": null,
+  "comment": "Review notes",
+  "content": "== Changelog ==\n\n* v1: first draft.\n* v2: review notes added.\n",
+  "clazz": null,
+  "objects": null,
+  "attachments": null,
+  "hierarchy": {
+    "items": [
+      {
+        "label": "xwiki",
+        "name": "xwiki",
+        "type": "wiki",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Main/"
+      },
+      {
+        "label": "Tidewater",
+        "name": "Tidewater",
+        "type": "space",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/"
+      },
+      {
+        "label": "Showcase",
+        "name": "Showcase",
+        "type": "space",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/"
+      },
+      {
+        "label": "Changelog",
+        "name": "Changelog",
+        "type": "space",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Changelog/"
+      },
+      {
+        "label": "WebHome",
+        "name": "WebHome",
+        "type": "document",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Changelog/"
+      }
+    ]
+  }
+}

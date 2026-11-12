@@ -1,0 +1,25 @@
+[workspace]
+resolver = "2"
+members = ["adapter", "check"]
+
+[workspace.package]
+edition = "2024"
+version = "0.1.0"
+
+# The knobas release whose SDK and host this adapter is built and checked
+# against. The SDK's version is the `knobas:adapter` interface it binds
+# (1.5.0 at this tag); the manifest's `interface_version` says the same.
+[workspace.dependencies]
+knobas-adapter-sdk = { git = "https://github.com/BFoerschner/knobas", tag = "v3.2.9-ux7" }
+knobas-wasm-host = { git = "https://github.com/BFoerschner/knobas", tag = "v3.2.9-ux7" }
+knobas-source = { git = "https://github.com/BFoerschner/knobas", tag = "v3.2.9-ux7" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+chrono = { version = "0.4", default-features = false, features = ["serde", "std"] }
+
+[profile.release]
+# A component is downloaded by every reader who installs it: keep it small.
+opt-level = "s"
+lto = true
+codegen-units = 1
+strip = true

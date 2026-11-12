@@ -1,0 +1,18 @@
+{
+  "links": [
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Sandbox/pages/KnobasRestProbe",
+      "rel": "http://www.xwiki.org/rel/page",
+      "type": null,
+      "hrefLang": null
+    }
+  ],
+  "id": 0,
+  "pageId": null,
+  "author": "XWiki.knobas",
+  "authorName": null,
+  "date": 1794481713234,
+  "highlight": "",
+  "text": "hello",
+  "replyTo": null
+}

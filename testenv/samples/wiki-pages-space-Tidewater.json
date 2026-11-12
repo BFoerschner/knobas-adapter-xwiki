@@ -1,0 +1,369 @@
+{
+  "links": [],
+  "pageSummaries": [
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/LedgerReconciliationRunbook/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Engineering.LedgerReconciliationRunbook.WebHome",
+      "fullName": "Tidewater.Engineering.LedgerReconciliationRunbook.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Engineering.LedgerReconciliationRunbook",
+      "name": "WebHome",
+      "title": "Ledger reconciliation runbook",
+      "rawTitle": null,
+      "parent": "",
+      "parentId": null,
+      "version": null,
+      "author": null,
+      "authorName": null,
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/LedgerReconciliationRunbook/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/LedgerReconciliationRunbook/",
+      "translations": null,
+      "syntax": null
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/OnCallHandbook/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Engineering.OnCallHandbook.WebHome",
+      "fullName": "Tidewater.Engineering.OnCallHandbook.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Engineering.OnCallHandbook",
+      "name": "WebHome",
+      "title": "On-call handbook",
+      "rawTitle": null,
+      "parent": "",
+      "parentId": null,
+      "version": null,
+      "author": null,
+      "authorName": null,
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/OnCallHandbook/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/OnCallHandbook/",
+      "translations": null,
+      "syntax": null
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/PaymentsArchitectureOverview/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Engineering.PaymentsArchitectureOverview.WebHome",
+      "fullName": "Tidewater.Engineering.PaymentsArchitectureOverview.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Engineering.PaymentsArchitectureOverview",
+      "name": "WebHome",
+      "title": "Payments architecture overview",
+      "rawTitle": null,
+      "parent": "",
+      "parentId": null,
+      "version": null,
+      "author": null,
+      "authorName": null,
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/PaymentsArchitectureOverview/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/PaymentsArchitectureOverview/",
+      "translations": null,
+      "syntax": null
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Engineering.SEPAPayoutRetryDesign.WebHome",
+      "fullName": "Tidewater.Engineering.SEPAPayoutRetryDesign.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Engineering.SEPAPayoutRetryDesign",
+      "name": "WebHome",
+      "title": "SEPA payout retry design",
+      "rawTitle": null,
+      "parent": "",
+      "parentId": null,
+      "version": null,
+      "author": null,
+      "authorName": null,
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/SEPAPayoutRetryDesign/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/SEPAPayoutRetryDesign/",
+      "translations": null,
+      "syntax": null
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/StandupProtocols/pages/DailyProtocol20260821",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Engineering.StandupProtocols.DailyProtocol20260821",
+      "fullName": "Tidewater.Engineering.StandupProtocols.DailyProtocol20260821",
+      "wiki": "xwiki",
+      "space": "Tidewater.Engineering.StandupProtocols",
+      "name": "DailyProtocol20260821",
+      "title": "Daily protocol 2026-08-21",
+      "rawTitle": null,
+      "parent": "",
+      "parentId": null,
+      "version": null,
+      "author": null,
+      "authorName": null,
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/StandupProtocols/DailyProtocol20260821",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/StandupProtocols/DailyProtocol20260821",
+      "translations": null,
+      "syntax": null
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/StandupProtocols/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Engineering.StandupProtocols.WebHome",
+      "fullName": "Tidewater.Engineering.StandupProtocols.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Engineering.StandupProtocols",
+      "name": "WebHome",
+      "title": "Standup protocols",
+      "rawTitle": null,
+      "parent": "",
+      "parentId": null,
+      "version": null,
+      "author": null,
+      "authorName": null,
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/StandupProtocols/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/StandupProtocols/",
+      "translations": null,
+      "syntax": null
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Engineering.WebHome",
+      "fullName": "Tidewater.Engineering.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Engineering",
+      "name": "WebHome",
+      "title": "Engineering",
+      "rawTitle": null,
+      "parent": "",
+      "parentId": null,
+      "version": null,
+      "author": null,
+      "authorName": null,
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/",
+      "translations": null,
+      "syntax": null
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Changelog/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Showcase.Changelog.WebHome",
+      "fullName": "Tidewater.Showcase.Changelog.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Showcase.Changelog",
+      "name": "WebHome",
+      "title": "Changelog (several versions)",
+      "rawTitle": null,
+      "parent": "",
+      "parentId": null,
+      "version": null,
+      "author": null,
+      "authorName": null,
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Changelog/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Changelog/",
+      "translations": null,
+      "syntax": null
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Images/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Showcase.Images.WebHome",
+      "fullName": "Tidewater.Showcase.Images.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Showcase.Images",
+      "name": "WebHome",
+      "title": "Images",
+      "rawTitle": null,
+      "parent": "",
+      "parentId": null,
+      "version": null,
+      "author": null,
+      "authorName": null,
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Images/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Images/",
+      "translations": null,
+      "syntax": null
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/IncludedSnippet/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Showcase.IncludedSnippet.WebHome",
+      "fullName": "Tidewater.Showcase.IncludedSnippet.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Showcase.IncludedSnippet",
+      "name": "WebHome",
+      "title": "Included snippet",
+      "rawTitle": null,
+      "parent": "",
+      "parentId": null,
+      "version": null,
+      "author": null,
+      "authorName": null,
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/IncludedSnippet/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/IncludedSnippet/",
+      "translations": null,
+      "syntax": null
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Macros/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Showcase.Macros.WebHome",
+      "fullName": "Tidewater.Showcase.Macros.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Showcase.Macros",
+      "name": "WebHome",
+      "title": "Macros",
+      "rawTitle": null,
+      "parent": "",
+      "parentId": null,
+      "version": null,
+      "author": null,
+      "authorName": null,
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Macros/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Macros/",
+      "translations": null,
+      "syntax": null
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Tables/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Showcase.Tables.WebHome",
+      "fullName": "Tidewater.Showcase.Tables.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Showcase.Tables",
+      "name": "WebHome",
+      "title": "Tables",
+      "rawTitle": null,
+      "parent": "",
+      "parentId": null,
+      "version": null,
+      "author": null,
+      "authorName": null,
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Tables/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Tables/",
+      "translations": null,
+      "syntax": null
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.Showcase.WebHome",
+      "fullName": "Tidewater.Showcase.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater.Showcase",
+      "name": "WebHome",
+      "title": "Docs reader showcase",
+      "rawTitle": null,
+      "parent": "",
+      "parentId": null,
+      "version": null,
+      "author": null,
+      "authorName": null,
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/",
+      "translations": null,
+      "syntax": null
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/pages/WebHome",
+          "rel": "http://www.xwiki.org/rel/page",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "id": "xwiki:Tidewater.WebHome",
+      "fullName": "Tidewater.WebHome",
+      "wiki": "xwiki",
+      "space": "Tidewater",
+      "name": "WebHome",
+      "title": "Tidewater",
+      "rawTitle": null,
+      "parent": "",
+      "parentId": null,
+      "version": null,
+      "author": null,
+      "authorName": null,
+      "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/",
+      "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/",
+      "translations": null,
+      "syntax": null
+    }
+  ]
+}

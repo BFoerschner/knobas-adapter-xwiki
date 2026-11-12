@@ -1,0 +1,1 @@
+Query type [hql] is not allowed. Allowed query types are: [solr].

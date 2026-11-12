@@ -1,0 +1,17 @@
+{
+  "links": [
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/",
+      "rel": "http://www.xwiki.org/rel/parent",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/client",
+      "rel": "self",
+      "type": null,
+      "hrefLang": null
+    }
+  ],
+  "ip": "172.20.0.1"
+}

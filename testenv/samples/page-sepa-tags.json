@@ -1,0 +1,38 @@
+{
+  "links": [],
+  "tags": [
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/tags/payments",
+          "rel": "http://www.xwiki.org/rel/tag",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "name": "payments"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/tags/sepa",
+          "rel": "http://www.xwiki.org/rel/tag",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "name": "sepa"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/tags/design",
+          "rel": "http://www.xwiki.org/rel/tag",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "name": "design"
+    }
+  ]
+}

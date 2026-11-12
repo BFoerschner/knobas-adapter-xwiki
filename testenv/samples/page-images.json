@@ -1,0 +1,112 @@
+{
+  "links": [
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Images",
+      "rel": "http://www.xwiki.org/rel/space",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Images/pages/WebHome/history",
+      "rel": "http://www.xwiki.org/rel/history",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Images/pages/WebHome/attachments",
+      "rel": "http://www.xwiki.org/rel/attachments",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/syntaxes",
+      "rel": "http://www.xwiki.org/rel/syntaxes",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Showcase/spaces/Images/pages/WebHome",
+      "rel": "self",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/classes/Tidewater.Showcase.Images.WebHome",
+      "rel": "http://www.xwiki.org/rel/class",
+      "type": null,
+      "hrefLang": null
+    }
+  ],
+  "id": "xwiki:Tidewater.Showcase.Images.WebHome",
+  "fullName": "Tidewater.Showcase.Images.WebHome",
+  "wiki": "xwiki",
+  "space": "Tidewater.Showcase.Images",
+  "name": "WebHome",
+  "title": "Images",
+  "rawTitle": "Images",
+  "parent": "",
+  "parentId": "",
+  "version": "2.1",
+  "author": "XWiki.knobas",
+  "authorName": null,
+  "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Images/",
+  "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Images/",
+  "translations": {
+    "links": [],
+    "translations": [],
+    "default": ""
+  },
+  "syntax": "xwiki/2.1",
+  "language": "",
+  "majorVersion": 2,
+  "minorVersion": 1,
+  "hidden": false,
+  "enforceRequiredRights": false,
+  "created": 1794481698000,
+  "creator": "XWiki.knobas",
+  "creatorName": null,
+  "modified": 1794481698000,
+  "modifier": "XWiki.knobas",
+  "modifierName": null,
+  "originalMetadataAuthor": "xwiki:XWiki.knobas",
+  "originalMetadataAuthorName": null,
+  "comment": "",
+  "content": "An attached picture (not \"image\" plus a colon: xwiki/2.1 reads that as an image reference):\n\n[[image:knobas-logo.png]]\n\nWith alt text and a width:\n\n[[image:knobas-logo.png||alt=\"knobas logo\" width=\"64\"]]\n\nAn image attached to another page, by reference:\n\n[[image:Tidewater.Showcase.Images.WebHome@knobas-logo.png||alt=\"same logo, absolute reference\"]]\n\nAn image that links somewhere:\n\n[[[[image:knobas-logo.png||alt=\"linked logo\"]]>>Tidewater.Showcase.WebHome]]\n",
+  "clazz": null,
+  "objects": null,
+  "attachments": null,
+  "hierarchy": {
+    "items": [
+      {
+        "label": "xwiki",
+        "name": "xwiki",
+        "type": "wiki",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Main/"
+      },
+      {
+        "label": "Tidewater",
+        "name": "Tidewater",
+        "type": "space",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/"
+      },
+      {
+        "label": "Showcase",
+        "name": "Showcase",
+        "type": "space",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/"
+      },
+      {
+        "label": "Images",
+        "name": "Images",
+        "type": "space",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Images/"
+      },
+      {
+        "label": "WebHome",
+        "name": "WebHome",
+        "type": "document",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Showcase/Images/"
+      }
+    ]
+  }
+}

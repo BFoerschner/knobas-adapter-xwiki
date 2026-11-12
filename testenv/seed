@@ -1,0 +1,726 @@
+#!/usr/bin/env python3
+"""Seed the knobas XWiki test instance over its REST API.
+
+    testenv/seed            create whatever is missing (re-run creates nothing)
+    testenv/seed --verify   read a few things back; exit 1 if any is missing
+
+Every write is preceded by a read: a user, page, comment, tag set or attachment
+that is already there is left alone. Pages are written by the fixture person
+who authored them (basic auth as that user), so `author`/`creator` are real
+XWiki users. Page dates are seed time: XWiki's REST API cannot backdate a page.
+Comment dates come from the fixture (an XWikiComments object's `date` is an
+ordinary property).
+
+Environment: XWIKI_URL (default http://127.0.0.1:8099/xwiki, the tunnel),
+XWIKI_SUPERADMIN_PASSWORD (default knobas-superadmin).
+"""
+
+import base64
+import json
+import os
+import struct
+import sys
+import time
+import urllib.error
+import urllib.parse
+import urllib.request
+import zlib
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+BASE = os.environ.get("XWIKI_URL", "http://127.0.0.1:8099/xwiki").rstrip("/")
+REST = BASE + "/rest/wikis/xwiki"
+FIXTURE = Path(os.environ.get("TIDEWATER_FIXTURE", "/Users/dev/knobas/fixtures/tidewater/work.json"))
+
+SUPERADMIN = ("superadmin", os.environ.get("XWIKI_SUPERADMIN_PASSWORD", "knobas-superadmin"))
+ADMIN = ("knobas", "knobas-dev")
+PEOPLE_PASSWORD = "tidewater-dev"
+
+
+# --------------------------------------------------------------------------- HTTP
+
+class HttpError(Exception):
+    def __init__(self, status, method, url, body):
+        super().__init__(f"{method} {url} -> {status}: {body[:300]!r}")
+        self.status = status
+
+
+def request(method, url, auth, body=None, content_type=None, accept="application/json"):
+    headers = {"Accept": accept}
+    token = base64.b64encode(f"{auth[0]}:{auth[1]}".encode()).decode()
+    headers["Authorization"] = "Basic " + token
+    data = None
+    if body is not None:
+        if isinstance(body, (dict, list)):
+            data = json.dumps(body).encode()
+            content_type = content_type or "application/json"
+        elif isinstance(body, str):
+            data = body.encode()
+        else:
+            data = body
+        headers["Content-Type"] = content_type
+    req = urllib.request.Request(url, data=data, method=method, headers=headers)
+    try:
+        with urllib.request.urlopen(req, timeout=120) as resp:
+            raw = resp.read()
+            return resp.status, raw
+    except urllib.error.HTTPError as e:
+        return e.code, e.read()
+
+
+def get_json(url, auth):
+    status, raw = request("GET", url, auth)
+    if status == 404:
+        return None
+    if status != 200:
+        raise HttpError(status, "GET", url, raw.decode("utf-8", "replace"))
+    return json.loads(raw)
+
+
+def must(status, raw, method, url, ok=(200, 201, 202, 204)):
+    if status not in ok:
+        raise HttpError(status, method, url, raw.decode("utf-8", "replace"))
+
+
+def q(s):
+    return urllib.parse.quote(s, safe="")
+
+
+def page_url(space_path, page):
+    """space_path: 'Tidewater.Engineering' -> .../spaces/Tidewater/spaces/Engineering/pages/{page}"""
+    spaces = "/".join("spaces/" + q(s) for s in space_path.split("."))
+    return f"{REST}/{spaces}/pages/{q(page)}"
+
+
+def whoami(auth):
+    """The user XWiki served the request as, from the XWiki-User response header.
+
+    A wrong password is not a 401: XWiki serves the request as guest and sends
+    no XWiki-User header. So is an account in the login-failure lockout
+    (3 failures within 300 s by default, then a captcha that basic auth cannot
+    answer)."""
+    req = urllib.request.Request(BASE + "/rest/", headers={
+        "Authorization": "Basic " + base64.b64encode(f"{auth[0]}:{auth[1]}".encode()).decode()})
+    with urllib.request.urlopen(req, timeout=60) as resp:
+        return resp.headers.get("XWiki-User")
+
+
+def require_login(auth):
+    user = whoami(auth)
+    if user != f"xwiki:XWiki.{auth[0]}":
+        sys.exit(f"seed: XWiki does not accept the login {auth[0]!r} (served as {user or 'guest'}). "
+                 "Wrong password, or the account is in XWiki's login-failure lockout: "
+                 "wait 5 minutes after the last failed login and retry.")
+
+
+FLAVOR_JOB = (BASE + "/rest/jobstatus/extension/action/"
+              "org.xwiki.platform%3Axwiki-platform-distribution-flavor-mainwiki/wiki%3Axwiki")
+
+
+def wait_for_flavor(seconds=900):
+    """On a fresh volume the Distribution Wizard installs XWiki Standard on its own
+    (knobas-entrypoint.sh); the seed needs its pages and groups, so wait for it."""
+    deadline = time.time() + seconds
+    state = None
+    while time.time() < deadline:
+        status, raw = request("GET", FLAVOR_JOB, SUPERADMIN)
+        if status == 200:
+            state = json.loads(raw).get("state")
+            if state == "FINISHED":
+                return
+        print(f"seed: waiting for the XWiki Standard flavor install (job {state or 'not started'})")
+        time.sleep(10)
+    sys.exit(f"seed: the flavor install did not finish within {seconds}s (state {state})")
+
+
+def wait_for_xwiki(seconds=600):
+    deadline = time.time() + seconds
+    last = None
+    while time.time() < deadline:
+        try:
+            status, raw = request("GET", BASE + "/rest/", SUPERADMIN)
+            if status == 200:
+                return json.loads(raw)
+            last = status
+        except Exception as e:  # connection refused while Tomcat starts
+            last = e
+        time.sleep(5)
+    sys.exit(f"seed: XWiki at {BASE} did not answer within {seconds}s (last: {last})")
+
+
+# --------------------------------------------------------------------------- writers
+
+created = []
+
+# Seed reads go through superadmin: the wiki denies view to guests, and the
+# knobas admin does not exist yet on a fresh volume.
+READ = SUPERADMIN
+
+
+def note(what):
+    created.append(what)
+    print("  + " + what)
+
+
+def ensure_page(space_path, page, title, content, auth, version_comment=None):
+    url = page_url(space_path, page)
+    existing = get_json(url, READ)
+    if existing is not None:
+        return existing
+    body = {"title": title, "syntax": "xwiki/2.1", "content": content}
+    if version_comment:
+        body["comment"] = version_comment
+    status, raw = request("PUT", url, auth, body)
+    must(status, raw, "PUT", url, ok=(201,))
+    note(f"page {space_path}.{page} by {auth[0]}")
+    return json.loads(raw)
+
+
+def ensure_object(space_path, page, class_name, match, properties, auth):
+    """Add a `class_name` object unless one whose properties include `match` exists."""
+    base = page_url(space_path, page) + "/objects/" + q(class_name)
+    listing = get_json(base, READ) or {"objectSummaries": []}
+    for summary in listing["objectSummaries"]:
+        obj = get_json(f"{base}/{summary['number']}", READ)
+        props = {p["name"]: p.get("value") for p in obj["properties"]}
+        if all(props.get(k) == v for k, v in match.items()):
+            return summary["number"]
+    url = page_url(space_path, page) + "/objects"
+    body = {
+        "className": class_name,
+        "properties": [{"name": k, "value": v} for k, v in properties.items()],
+    }
+    status, raw = request("POST", url, auth, body)
+    must(status, raw, "POST", url, ok=(201,))
+    number = json.loads(raw)["number"]
+    note(f"object {class_name}[{number}] on {space_path}.{page}")
+    return number
+
+
+def ensure_user(user_page, first, last, email, password, about, admin=False):
+    url = page_url("XWiki", user_page)
+    if get_json(url, SUPERADMIN) is None:
+        status, raw = request("PUT", url, SUPERADMIN, {"title": f"{first} {last}", "content": ""})
+        must(status, raw, "PUT", url, ok=(201,))
+        note(f"user page XWiki.{user_page}")
+    ensure_object("XWiki", user_page, "XWiki.XWikiUsers", {},
+                  {"first_name": first, "last_name": last, "email": email,
+                   "password": password, "active": "1", "company": "Tidewater",
+                   "comment": about}, SUPERADMIN)
+    ensure_object("XWiki", "XWikiAllGroup", "XWiki.XWikiGroups",
+                  {"member": f"XWiki.{user_page}"}, {"member": f"XWiki.{user_page}"}, SUPERADMIN)
+    if admin:
+        ensure_object("XWiki", "XWikiAdminGroup", "XWiki.XWikiGroups",
+                      {"member": f"XWiki.{user_page}"}, {"member": f"XWiki.{user_page}"}, SUPERADMIN)
+
+
+def ensure_props(space_path, page, class_name, number, props, auth):
+    """Set properties on object `class_name`[number], creating the object if missing."""
+    url = page_url(space_path, page) + f"/objects/{q(class_name)}/{number}"
+    obj = get_json(url, auth)
+    if obj is None:
+        ensure_object(space_path, page, class_name, props, props, auth)
+        return
+    current = {p["name"]: p.get("value") for p in obj["properties"]}
+    if all(current.get(k) == v for k, v in props.items()):
+        return
+    status, raw = request("PUT", url, auth, {"properties": [{"name": k, "value": v} for k, v in props.items()]})
+    must(status, raw, "PUT", url, ok=(200, 202))
+    note(f"{class_name}[{number}] on {space_path}.{page}: {props}")
+
+
+def ensure_tags(space_path, page, tags, auth):
+    url = page_url(space_path, page) + "/tags"
+    current = get_json(url, READ) or {"tags": []}
+    names = sorted(t["name"] for t in current.get("tags", []))
+    if names == sorted(tags):
+        return
+    body = {"tags": [{"name": t} for t in tags]}
+    status, raw = request("PUT", url, auth, body)
+    must(status, raw, "PUT", url, ok=(200, 201, 202))
+    note(f"tags {tags} on {space_path}.{page}")
+
+
+def ensure_attachment(space_path, page, name, data, mime, auth):
+    url = page_url(space_path, page) + "/attachments"
+    listing = get_json(url, READ) or {"attachments": []}
+    if any(a["name"] == name for a in listing["attachments"]):
+        return
+    status, raw = request("PUT", f"{url}/{q(name)}", auth, data, content_type=mime)
+    must(status, raw, "PUT", f"{url}/{q(name)}", ok=(201, 202))
+    note(f"attachment {name} on {space_path}.{page}")
+
+
+def ensure_history(space_path, page, title, edits):
+    """edits: [(auth, content, version comment)]; applies the ones after the current content."""
+    url = page_url(space_path, page)
+    existing = get_json(url, READ)
+    start = 0
+    if existing is not None:
+        contents = [c for _, c, _ in edits]
+        if existing["content"] in contents:
+            start = contents.index(existing["content"]) + 1
+        else:
+            return  # edited by hand since; leave it
+    for auth, content, comment in edits[start:]:
+        body = {"title": title, "syntax": "xwiki/2.1", "content": content, "comment": comment}
+        status, raw = request("PUT", url, auth, body)
+        must(status, raw, "PUT", url, ok=(201, 202))
+        note(f"edit of {space_path}.{page} by {auth[0]} ({comment})")
+
+
+def png(width, height):
+    """A small teal/amber gradient PNG, built with the standard library."""
+    rows = b""
+    for y in range(height):
+        row = b"\x00"
+        for x in range(width):
+            t = x / max(1, width - 1)
+            r = int(20 + 220 * t)
+            g = int(140 - 20 * t + 60 * (y / max(1, height - 1)))
+            b = int(150 - 120 * t)
+            row += bytes((r, g, b))
+        rows += row
+
+    def chunk(kind, payload):
+        c = struct.pack(">I", len(payload)) + kind + payload
+        return c + struct.pack(">I", zlib.crc32(kind + payload) & 0xFFFFFFFF)
+
+    return (b"\x89PNG\r\n\x1a\n"
+            + chunk(b"IHDR", struct.pack(">IIBBBBB", width, height, 8, 2, 0, 0, 0))
+            + chunk(b"IDAT", zlib.compress(rows, 9))
+            + chunk(b"IEND", b""))
+
+
+# --------------------------------------------------------------------------- data
+
+def user_page_name(person):
+    return "".join(part[:1].upper() + part[1:] for part in person["name"].replace("ó", "o").split())
+
+
+def comment_date(iso):
+    # XWikiComments.date uses the class's dateFormat dd/MM/yyyy HH:mm:ss, read in the
+    # server's time zone (UTC in the container).
+    return f"{iso[8:10]}/{iso[5:7]}/{iso[0:4]} {iso[11:19]}"
+
+
+# Fixture page id -> (space path, page name, xwiki/2.1 body). The fixture holds a
+# body only for sepa-design; the others get a short body written for this testenv.
+FIXTURE_PAGES = {
+    "sepa-design": ("Tidewater.Engineering.SEPAPayoutRetryDesign", "WebHome", """\
+== Backoff policy ==
+
+Base 30 s, factor 2, max 5 attempts, jitter ±10 %. Transient codes: HTTP 503, ##TEMP_UNAVAILABLE##. After the final attempt the payout is moved to the manual review queue (see PAY-231).
+
+== Manual review queue ==
+
+//SLA: to be defined.//
+"""),
+    "ledger-reconciliation-runbook": ("Tidewater.Engineering.LedgerReconciliationRunbook", "WebHome", """\
+== When to run ==
+
+Run the reconciliation when the nightly ledger diff reports a mismatch above **0.01 EUR** per merchant.
+
+== Steps ==
+
+1. Freeze payouts for the affected merchant.
+1. Export the ledger window: {{code language="bash"}}ledgerctl export --merchant $ID --since 24h{{/code}}
+1. Compare against the bank statement and file the delta in the ledger channel.
+"""),
+    "on-call-handbook": ("Tidewater.Engineering.OnCallHandbook", "WebHome", """\
+== Rotation ==
+
+One week, handover Monday 10:00 CET. The secondary covers the primary's lunch hour.
+
+== Paging ==
+
+* **P1**: page immediately, acknowledge within 5 minutes.
+* **P2**: page during working hours only.
+"""),
+    "payments-architecture-overview": ("Tidewater.Engineering.PaymentsArchitectureOverview", "WebHome", """\
+== Components ==
+
+|=Service|=Owner|=Notes
+|payout-service|Payments|SEPA and card payouts
+|ledger|Payments|double-entry, append-only
+|gateway|Platform|rate limits, auth
+
+See [[SEPA payout retry design>>Tidewater.Engineering.SEPAPayoutRetryDesign.WebHome]] for the retry path.
+"""),
+    "standup-protocols": ("Tidewater.Engineering.StandupProtocols", "WebHome", """\
+Daily standup notes, one child page per day.
+
+{{children/}}
+"""),
+    # A terminal page (not a WebHome), so the tree has both page shapes.
+    "daily-protocol-2026-08-21": ("Tidewater.Engineering.StandupProtocols", "DailyProtocol20260821", """\
+== Attendees ==
+
+Mara, Jonas, Priya, Tomasz.
+
+== Notes ==
+
+* SEPA retry design ready for review.
+* Ledger mismatch on merchant 4411 resolved.
+"""),
+}
+
+
+SHOWCASE_HOME = """\
+{{toc/}}
+
+= Heading level 1 =
+
+A paragraph with **bold**, //italic//, __underline__, --strikethrough--, ##monospace##, ^^superscript^^ and ,,subscript,,. Nested: **bold with //italic// inside**.
+
+A second paragraph.
+Same paragraph after a single newline.\\\\Forced line break before this.
+
+== Links ==
+
+* Internal link with label: [[SEPA payout retry design>>Tidewater.Engineering.SEPAPayoutRetryDesign.WebHome]]
+* Internal link, no label: [[Tidewater.Engineering.OnCallHandbook.WebHome]]
+* Relative link to a child page: [[Tables>>page:./Tables]]
+* Looks relative, resolves from the wiki root (a missing top-level page): [[Tables>>Tables.WebHome]]
+* Link to a heading on another page: [[header row>>Tidewater.Showcase.Tables.WebHome||anchor="HHeaderrow"]]
+* Link to a page outside the synced space: [[Outside.WebHome]]
+* Link to a page that does not exist: [[Not written yet>>Tidewater.Showcase.DoesNotExist]]
+* External link: [[XWiki syntax guide>>https://www.xwiki.org/xwiki/bin/view/Documentation/UserGuide/Features/XWikiSyntax/]]
+* Bare URL: https://example.com/runbooks
+* Mail link: [[mailto:payments@tidewater.example]]
+* Attachment link: [[the knobas logo>>attach:Tidewater.Showcase.Images.WebHome@knobas-logo.png]]
+
+== Lists ==
+
+=== Unordered, nested ===
+
+* one
+** one.a
+*** one.a.i
+** one.b
+* two
+
+=== Ordered, nested ===
+
+1. first
+11. first.one
+11. first.two
+1. second
+
+=== Mixed ===
+
+1. ordered item
+1*. unordered child
+1*. another unordered child
+1. ordered again
+
+=== Definition list ===
+
+; Term
+: Its definition.
+
+== Other blocks ==
+
+> A quotation.
+>> A nested quotation.
+
+----
+
+Inline verbatim: {{{**not bold**}}}
+
+{{{
+Verbatim block,
+  indentation kept.
+}}}
+
+A sentence with a footnote.{{footnote}}The footnote text.{{/footnote}}
+
+==== Heading level 4 ====
+
+===== Heading level 5 =====
+
+====== Heading level 6 ======
+
+== Child pages ==
+
+{{children/}}
+"""
+
+SHOWCASE_TABLES = """\
+== Header row ==
+
+|=Service|=Owner|=Status
+|payout-service|Payments|**green**
+|ledger|Payments|//amber//
+
+== Header column ==
+
+|=Region|EU|US
+|=Latency p95|120 ms|180 ms
+
+== Rich cells ==
+
+|=Kind|=Content
+|List in a cell|(((
+* first item
+* second item
+)))
+|Paragraphs in a cell|(((
+First paragraph in the cell.
+
+Second paragraph in the cell.
+)))
+|Link and code|[[On-call handbook>>Tidewater.Engineering.OnCallHandbook.WebHome]] and ##inline code##
+
+== Parameters ==
+
+(% class="table-bordered" %)
+|=(% colspan="2" %)Spans two columns
+|(% style="background-color:#eef" %)styled cell|plain cell
+"""
+
+SHOWCASE_MACROS = """\
+== Code ==
+
+{{code language="java"}}
+public final class Backoff {
+    static long delayMillis(int attempt) {
+        return 30_000L << attempt;
+    }
+}
+{{/code}}
+
+{{code language="sql"}}
+SELECT merchant_id, SUM(amount) FROM ledger GROUP BY merchant_id;
+{{/code}}
+
+{{code}}
+no language given
+{{/code}}
+
+Inline: {{code language="bash"}}just test{{/code}} inside a sentence.
+
+== Message boxes ==
+
+{{info}}An **info** box.{{/info}}
+
+{{warning title="Careful"}}A warning box with a title.{{/warning}}
+
+{{error}}An error box.{{/error}}
+
+{{success}}A success box.{{/success}}
+
+== Box ==
+
+{{box title="Box with a title"}}
+Box content with **formatting** and a list:
+
+* item
+{{/box}}
+
+== HTML ==
+
+{{html}}
+<div class="knobas-raw"><p>Raw <em>HTML</em> from the html macro.</p><ul><li>one</li></ul></div>
+{{/html}}
+
+== Include ==
+
+{{include reference="Tidewater.Showcase.IncludedSnippet.WebHome"/}}
+
+== Display ==
+
+{{display reference="Tidewater.Showcase.IncludedSnippet.WebHome"/}}
+
+== Mention ==
+
+Ping {{mention reference="XWiki.MaraLindqvist" style="FULL_NAME" anchor="XWiki-MaraLindqvist-showcase"/}} about the SLA.
+
+== Script ==
+
+{{velocity}}
+Rendered for $xcontext.user, so the output depends on who renders it.
+{{/velocity}}
+
+== Unknown macros ==
+
+{{doesnotexist/}}
+
+{{doesnotexist param="x"}}A body the unknown macro never renders.{{/doesnotexist}}
+"""
+
+SHOWCASE_IMAGES = """\
+An attached picture (not "image" plus a colon: xwiki/2.1 reads that as an image reference):
+
+[[image:knobas-logo.png]]
+
+With alt text and a width:
+
+[[image:knobas-logo.png||alt="knobas logo" width="64"]]
+
+An image attached to another page, by reference:
+
+[[image:Tidewater.Showcase.Images.WebHome@knobas-logo.png||alt="same logo, absolute reference"]]
+
+An image that links somewhere:
+
+[[[[image:knobas-logo.png||alt="linked logo"]]>>Tidewater.Showcase.WebHome]]
+"""
+
+SHOWCASE_SNIPPET = """\
+== Included section ==
+
+This paragraph lives on **IncludedSnippet** and shows up wherever it is included or displayed.
+"""
+
+
+# --------------------------------------------------------------------------- seed
+
+def seed():
+    info = wait_for_xwiki()
+    print(f"seed: XWiki {info.get('version')} at {BASE}")
+    fixture = json.loads(FIXTURE.read_text())
+    people = {p["id"]: p for p in fixture["people"]}
+
+    require_login(SUPERADMIN)
+    wait_for_flavor()
+
+    # 0. Wiki settings (as superadmin, before any other login is tried).
+    # No login-failure lockout: by default 3 failed logins within 300 s put an
+    # account behind a captcha, which basic auth cannot answer, so every later
+    # request with the right password is served as guest until the window
+    # passes. Adapter tests try wrong passwords on purpose.
+    ensure_props("XWiki.Authentication", "Configuration", "XWiki.Authentication.ConfigurationClass", 0,
+                 {"isAuthenticationSecurityEnabled": "0"}, SUPERADMIN)
+    # A private wiki, like a company one: guests may not view pages, so a
+    # wrong password gets 401 on REST page resources (302 to the login page on
+    # bin/ URLs) instead of a guest's 200.
+    ensure_props("XWiki", "XWikiPreferences", "XWiki.XWikiPreferences", 0,
+                 {"authenticate_view": "1"}, SUPERADMIN)
+
+    # 1. The knobas admin, made by superadmin.
+    ensure_user("knobas", "knobas", "Admin", "knobas@example.invalid", ADMIN[1],
+                "Admin account for the knobas XWiki adapter testenv", admin=True)
+
+    # 2. Fixture people.
+    auth_of = {}
+    for p in fixture["people"]:
+        first, last = p["name"].split(" ", 1)
+        name = user_page_name(p)
+        ensure_user(name, first, last, f"{p['username']}@tidewater.example", PEOPLE_PASSWORD, p["role"])
+        auth_of[p["id"]] = (name, PEOPLE_PASSWORD)
+    admin_auth = ADMIN
+    for auth in [ADMIN, *auth_of.values()]:
+        require_login(auth)
+
+    # 3. Tidewater space tree.
+    ensure_page("Tidewater", "WebHome", "Tidewater",
+                "Tidewater's team wiki.\n\n{{children/}}\n", auth_of["priya"])
+    ensure_page("Tidewater.Engineering", "WebHome", "Engineering",
+                "Engineering pages of the Payments team.\n\n{{children/}}\n", auth_of["priya"])
+    for page in fixture["pages"]:
+        space, name, body = FIXTURE_PAGES[page["id"]]
+        ensure_page(space, name, page["title"], body, auth_of[page["by"]])
+        for c in page["comments"]:
+            text = c["text"].replace(
+                "@Mara", '{{mention reference="XWiki.MaraLindqvist" style="FULL_NAME" anchor="XWiki-MaraLindqvist-sepa1"/}}')
+            ensure_object(space, name, "XWiki.XWikiComments",
+                          {"comment": text},
+                          {"author": "XWiki." + auth_of[c["who"]][0], "date": comment_date(c["when"]),
+                           "comment": text}, auth_of[c["who"]])
+    ensure_tags("Tidewater.Engineering.SEPAPayoutRetryDesign", "WebHome", ["payments", "sepa", "design"],
+                auth_of["mara"])
+    ensure_tags("Tidewater.Engineering.OnCallHandbook", "WebHome", ["on-call", "runbook"], auth_of["tomasz"])
+
+    # 4. Docs reader showcase.
+    sc = "Tidewater.Showcase"
+    ensure_page(sc, "WebHome", "Docs reader showcase", SHOWCASE_HOME, admin_auth)
+    ensure_page(sc + ".IncludedSnippet", "WebHome", "Included snippet", SHOWCASE_SNIPPET, admin_auth)
+    ensure_page(sc + ".Tables", "WebHome", "Tables", SHOWCASE_TABLES, admin_auth)
+    ensure_page(sc + ".Macros", "WebHome", "Macros", SHOWCASE_MACROS, admin_auth)
+    ensure_page(sc + ".Images", "WebHome", "Images", SHOWCASE_IMAGES, admin_auth)
+    ensure_attachment(sc + ".Images", "WebHome", "knobas-logo.png", png(96, 48), "image/png", admin_auth)
+    ensure_history(sc + ".Changelog", "WebHome", "Changelog (several versions)", [
+        (auth_of["mara"], "== Changelog ==\n\n* v1: first draft.\n", "First draft"),
+        (auth_of["jonas"], "== Changelog ==\n\n* v1: first draft.\n* v2: review notes added.\n", "Review notes"),
+        (auth_of["priya"], "== Changelog ==\n\n* v1: first draft.\n* v2: review notes added.\n"
+                           "* v3: approved for rollout.\n\n{{success}}Approved.{{/success}}\n", "Approved"),
+    ])
+    ensure_tags(sc + ".Changelog", "WebHome", ["changelog", "showcase"], auth_of["priya"])
+    first = ensure_object(sc, "WebHome", "XWiki.XWikiComments",
+                          {"comment": "Does the reader keep the footnote?"},
+                          {"author": "XWiki.JonasBecker", "date": "20/08/2026 09:15:00",
+                           "comment": "Does the reader keep the footnote?"}, auth_of["jonas"])
+    ensure_object(sc, "WebHome", "XWiki.XWikiComments",
+                  {"comment": "It should, as a numbered note at the end."},
+                  {"author": "XWiki.MaraLindqvist", "date": "20/08/2026 10:02:00",
+                   "comment": "It should, as a numbered note at the end.", "replyto": str(first)},
+                  auth_of["mara"])
+
+    # 5. A second space the adapter is not configured to sync.
+    ensure_page("Outside", "WebHome", "Outside (not synced)",
+                "Pages here are outside the adapter's configured space.\n\n{{children/}}\n", auth_of["lena"])
+    ensure_page("Outside.ProductRoadmap", "WebHome", "Product roadmap",
+                "== Q4 ==\n\n* Instant payouts pilot\n* Merchant self-service refunds\n", auth_of["lena"])
+
+    print(f"seed: done, {len(created)} write(s)" if created else "seed: done, nothing to create")
+
+
+# --------------------------------------------------------------------------- verify
+
+def verify():
+    wait_for_xwiki(seconds=30)
+    failures = []
+
+    def check(label, ok):
+        print(("  ok   " if ok else "  FAIL ") + label)
+        if not ok:
+            failures.append(label)
+
+    check("knobas logs in (XWiki-User header)", whoami(ADMIN) == "xwiki:XWiki.knobas")
+    for name in ("MaraLindqvist", "JonasBecker", "PriyaNair", "TomaszWojcik", "LenaHoffmann"):
+        user = get_json(page_url("XWiki", name) + "/objects/XWiki.XWikiUsers/0", ADMIN)
+        check(f"user XWiki.{name} exists and logs in",
+              user is not None and whoami((name, PEOPLE_PASSWORD)) == f"xwiki:XWiki.{name}")
+
+    for space, name, _ in FIXTURE_PAGES.values():
+        p = get_json(page_url(space, name), ADMIN)
+        check(f"page {space}.{name}", p is not None and p["content"].strip() != "")
+
+    comments = get_json(page_url("Tidewater.Engineering.SEPAPayoutRetryDesign", "WebHome")
+                        + "/objects/XWiki.XWikiComments", ADMIN)
+    check("SEPA page has its comment", comments is not None and len(comments["objectSummaries"]) >= 1)
+
+    tags = get_json(page_url("Tidewater.Showcase.Changelog", "WebHome") + "/tags", ADMIN)
+    check("Changelog has tags", tags is not None and {"changelog", "showcase"} <= {t["name"] for t in tags["tags"]})
+    hist = get_json(page_url("Tidewater.Showcase.Changelog", "WebHome") + "/history", ADMIN)
+    check("Changelog has >= 3 versions", hist is not None and len(hist["historySummaries"]) >= 3)
+
+    att = get_json(page_url("Tidewater.Showcase.Images", "WebHome") + "/attachments", ADMIN)
+    check("Images has knobas-logo.png", att is not None and any(a["name"] == "knobas-logo.png" for a in att["attachments"]))
+
+    status, raw = request("GET", BASE + "/bin/get/Tidewater/Showcase/Macros/WebHome?xpage=plain&outputSyntax=html",
+                          ADMIN, accept="text/html")
+    html = raw.decode("utf-8", "replace")
+    check("Macros page renders the info box", status == 200 and "infomessage" in html)
+    check("Macros page renders the included snippet inline", "lives on" in html)
+
+    check("Outside.WebHome exists", get_json(page_url("Outside", "WebHome"), ADMIN) is not None)
+
+    status, _ = request("GET", page_url("Tidewater", "WebHome"), ("knobas", "not-the-password"))
+    check("a wrong password gets 401 on a page resource", status == 401)
+    check("knobas still logs in after a failed login (no lockout)", whoami(ADMIN) == "xwiki:XWiki.knobas")
+
+    if failures:
+        print(f"verify: {len(failures)} check(s) failed")
+        sys.exit(1)
+    print("verify: all checks passed")
+
+
+if __name__ == "__main__":
+    if sys.argv[1:] == ["--verify"]:
+        verify()
+    elif sys.argv[1:] == []:
+        seed()
+    else:
+        sys.exit(__doc__)

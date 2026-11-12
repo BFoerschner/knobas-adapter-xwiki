@@ -1,0 +1,124 @@
+{
+  "links": [
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign",
+      "rel": "http://www.xwiki.org/rel/space",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome/history",
+      "rel": "http://www.xwiki.org/rel/history",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome/comments",
+      "rel": "http://www.xwiki.org/rel/comments",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome/objects",
+      "rel": "http://www.xwiki.org/rel/objects",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome/tags",
+      "rel": "http://www.xwiki.org/rel/tags",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/syntaxes",
+      "rel": "http://www.xwiki.org/rel/syntaxes",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/Tidewater/spaces/Engineering/spaces/SEPAPayoutRetryDesign/pages/WebHome",
+      "rel": "self",
+      "type": null,
+      "hrefLang": null
+    },
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/classes/Tidewater.Engineering.SEPAPayoutRetryDesign.WebHome",
+      "rel": "http://www.xwiki.org/rel/class",
+      "type": null,
+      "hrefLang": null
+    }
+  ],
+  "id": "xwiki:Tidewater.Engineering.SEPAPayoutRetryDesign.WebHome",
+  "fullName": "Tidewater.Engineering.SEPAPayoutRetryDesign.WebHome",
+  "wiki": "xwiki",
+  "space": "Tidewater.Engineering.SEPAPayoutRetryDesign",
+  "name": "WebHome",
+  "title": "SEPA payout retry design",
+  "rawTitle": "SEPA payout retry design",
+  "parent": "",
+  "parentId": "",
+  "version": "3.1",
+  "author": "XWiki.PriyaNair",
+  "authorName": null,
+  "xwikiRelativeUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/SEPAPayoutRetryDesign/",
+  "xwikiAbsoluteUrl": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/SEPAPayoutRetryDesign/",
+  "translations": {
+    "links": [],
+    "translations": [],
+    "default": ""
+  },
+  "syntax": "xwiki/2.1",
+  "language": "",
+  "majorVersion": 3,
+  "minorVersion": 1,
+  "hidden": false,
+  "enforceRequiredRights": false,
+  "created": 1794481696000,
+  "creator": "XWiki.MaraLindqvist",
+  "creatorName": null,
+  "modified": 1794481696000,
+  "modifier": "XWiki.MaraLindqvist",
+  "modifierName": null,
+  "originalMetadataAuthor": "xwiki:XWiki.PriyaNair",
+  "originalMetadataAuthorName": null,
+  "comment": "",
+  "content": "== Backoff policy ==\n\nBase 30 s, factor 2, max 5 attempts, jitter ±10 %. Transient codes: HTTP 503, ##TEMP_UNAVAILABLE##. After the final attempt the payout is moved to the manual review queue (see PAY-231).\n\n== Manual review queue ==\n\n//SLA: to be defined.//\n",
+  "clazz": null,
+  "objects": null,
+  "attachments": null,
+  "hierarchy": {
+    "items": [
+      {
+        "label": "xwiki",
+        "name": "xwiki",
+        "type": "wiki",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Main/"
+      },
+      {
+        "label": "Tidewater",
+        "name": "Tidewater",
+        "type": "space",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/"
+      },
+      {
+        "label": "Engineering",
+        "name": "Engineering",
+        "type": "space",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/"
+      },
+      {
+        "label": "SEPAPayoutRetryDesign",
+        "name": "SEPAPayoutRetryDesign",
+        "type": "space",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/SEPAPayoutRetryDesign/"
+      },
+      {
+        "label": "WebHome",
+        "name": "WebHome",
+        "type": "document",
+        "url": "http://127.0.0.1:8099/xwiki/bin/view/Tidewater/Engineering/SEPAPayoutRetryDesign/"
+      }
+    ]
+  }
+}

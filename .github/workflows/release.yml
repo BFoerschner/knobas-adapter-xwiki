@@ -1,0 +1,34 @@
+name: release
+
+# Push a tag `v<version>` matching `version` in Cargo.toml. The release's two
+# assets are what knobas installs from: it reads `knobas-adapter.json` from
+# the latest release and fetches the `.wasm` it names, checking its SHA-256.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: rustup show active-toolchain || rustup toolchain install
+      - uses: Swatinem/rust-cache@v2
+      - name: The tag is the crate version
+        run: |
+          version=$(sed -n 's/^version = "\(.*\)"/\1/p' Cargo.toml | head -1)
+          test "${GITHUB_REF_NAME}" = "v${version}" || {
+            echo "tag ${GITHUB_REF_NAME} is not v${version} (Cargo.toml)"; exit 1; }
+      - run: cargo test --workspace
+      - run: scripts/build.sh
+      - run: cargo run -q -p check -- static dist/knobas-adapter.json
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" \
+            dist/knobas-adapter.json dist/knobas_adapter_xwiki.wasm \
+            --title "${GITHUB_REF_NAME}" --notes-file CHANGELOG.md

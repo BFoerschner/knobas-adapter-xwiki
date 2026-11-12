@@ -1,0 +1,1349 @@
+{
+  "links": [
+    {
+      "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0",
+      "rel": "self",
+      "type": null,
+      "hrefLang": null
+    }
+  ],
+  "id": "xwiki:XWiki.MaraLindqvist:817a19fc-e234-45ba-b3cf-b2f3931a6e6d",
+  "guid": "817a19fc-e234-45ba-b3cf-b2f3931a6e6d",
+  "pageId": "xwiki:XWiki.MaraLindqvist",
+  "pageVersion": "2.1",
+  "wiki": "xwiki",
+  "space": "XWiki",
+  "pageName": "MaraLindqvist",
+  "pageAuthor": "XWiki.superadmin",
+  "pageAuthorName": null,
+  "className": "XWiki.XWikiUsers",
+  "number": 0,
+  "headline": "Mara",
+  "properties": [
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/active",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "active"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Active"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "displayFormType",
+          "value": "select"
+        },
+        {
+          "links": [],
+          "name": "displayType",
+          "value": "active"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "6"
+        }
+      ],
+      "value": "1",
+      "name": "active",
+      "type": "Boolean"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/address",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "address"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Address"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "40"
+        },
+        {
+          "links": [],
+          "name": "rows",
+          "value": "3"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "21"
+        }
+      ],
+      "value": "",
+      "name": "address",
+      "type": "TextArea"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/avatar",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "avatar"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Avatar"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "30"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "19"
+        }
+      ],
+      "value": "",
+      "name": "avatar",
+      "type": "String"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/blog",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "blog"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Blog"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "60"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "8"
+        }
+      ],
+      "value": "",
+      "name": "blog",
+      "type": "String"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/blogfeed",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "blogfeed"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Blog Feed"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "60"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "9"
+        }
+      ],
+      "value": "",
+      "name": "blogfeed",
+      "type": "String"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/comment",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "comment"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Comment"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "40"
+        },
+        {
+          "links": [],
+          "name": "rows",
+          "value": "5"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "10"
+        }
+      ],
+      "value": "backend engineer, Payments team",
+      "name": "comment",
+      "type": "TextArea"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/company",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "company"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Company"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "30"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "7"
+        }
+      ],
+      "value": "Tidewater",
+      "name": "company",
+      "type": "String"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/displayHiddenDocuments",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "displayHiddenDocuments"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Display Hidden Documents"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "displayFormType",
+          "value": "select"
+        },
+        {
+          "links": [],
+          "name": "displayType",
+          "value": "yesno"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "16"
+        }
+      ],
+      "value": "",
+      "name": "displayHiddenDocuments",
+      "type": "Boolean"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/editor",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "editor"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Default Editor"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "relationalStorage",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "displayType",
+          "value": "select"
+        },
+        {
+          "links": [],
+          "name": "multiSelect",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "1"
+        },
+        {
+          "links": [],
+          "name": "separator",
+          "value": " "
+        },
+        {
+          "links": [],
+          "name": "cache",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "separators",
+          "value": "|, "
+        },
+        {
+          "links": [],
+          "name": "freeText",
+          "value": "forbidden"
+        },
+        {
+          "links": [],
+          "name": "largeStorage",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "13"
+        },
+        {
+          "links": [],
+          "name": "values",
+          "value": "Text|Wysiwyg"
+        },
+        {
+          "links": [],
+          "name": "allowedValues",
+          "value": "Text,Wysiwyg"
+        }
+      ],
+      "value": "",
+      "name": "editor",
+      "type": "StaticList"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/email",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "email"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "e-Mail"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "30"
+        },
+        {
+          "links": [],
+          "name": "validationRegExp",
+          "value": "/^(([^@\\s]+)@((?:[-a-zA-Z0-9]+\\.)+[a-zA-Z]{2,}))?$/"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "3"
+        }
+      ],
+      "value": "mara.lindqvist@tidewater.example",
+      "name": "email",
+      "type": "Email"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/email_checked",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "email_checked"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Email address verified"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "displayFormType",
+          "value": "select"
+        },
+        {
+          "links": [],
+          "name": "displayType",
+          "value": ""
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "23"
+        }
+      ],
+      "value": "",
+      "name": "email_checked",
+      "type": "Boolean"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/extensionConflictSetup",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "extensionConflictSetup"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Enable extension conflict setup"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "displayFormType",
+          "value": "select"
+        },
+        {
+          "links": [],
+          "name": "displayType",
+          "value": "yesno"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "22"
+        }
+      ],
+      "value": "",
+      "name": "extensionConflictSetup",
+      "type": "Boolean"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/first_name",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "first_name"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "First Name"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "30"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "1"
+        }
+      ],
+      "value": "Mara",
+      "name": "first_name",
+      "type": "String"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/imaccount",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "imaccount"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "imaccount"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "30"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "12"
+        }
+      ],
+      "value": "",
+      "name": "imaccount",
+      "type": "String"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/imtype",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "imtype"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "IM Type"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "relationalStorage",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "displayType",
+          "value": "select"
+        },
+        {
+          "links": [],
+          "name": "multiSelect",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "1"
+        },
+        {
+          "links": [],
+          "name": "separator",
+          "value": " "
+        },
+        {
+          "links": [],
+          "name": "cache",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "separators",
+          "value": "|, "
+        },
+        {
+          "links": [],
+          "name": "freeText",
+          "value": "forbidden"
+        },
+        {
+          "links": [],
+          "name": "largeStorage",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "11"
+        },
+        {
+          "links": [],
+          "name": "values",
+          "value": "AIM|Yahoo|Jabber|MSN|Skype|ICQ"
+        },
+        {
+          "links": [],
+          "name": "allowedValues",
+          "value": "AIM,Yahoo,Jabber,MSN,Skype,ICQ"
+        }
+      ],
+      "value": "",
+      "name": "imtype",
+      "type": "StaticList"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/last_name",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "last_name"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Last Name"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "30"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "2"
+        }
+      ],
+      "value": "Lindqvist",
+      "name": "last_name",
+      "type": "String"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/password",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "password"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Password"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "10"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "4"
+        }
+      ],
+      "value": "",
+      "name": "password",
+      "type": "Password"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/phone",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "phone"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Phone"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "30"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "20"
+        }
+      ],
+      "value": "",
+      "name": "phone",
+      "type": "String"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/skin",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "skin"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "skin"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "relationalStorage",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "displayType",
+          "value": "input"
+        },
+        {
+          "links": [],
+          "name": "multiSelect",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "30"
+        },
+        {
+          "links": [],
+          "name": "separator",
+          "value": " "
+        },
+        {
+          "links": [],
+          "name": "cache",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "classname",
+          "value": ""
+        },
+        {
+          "links": [],
+          "name": "freeText",
+          "value": "discouraged"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "18"
+        },
+        {
+          "links": [],
+          "name": "picker",
+          "value": "1"
+        },
+        {
+          "links": [],
+          "name": "sql",
+          "value": ""
+        }
+      ],
+      "value": "",
+      "name": "skin",
+      "type": "Page"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/timezone",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "timezone"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Time Zone"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "30"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "17"
+        }
+      ],
+      "value": "",
+      "name": "timezone",
+      "type": "Timezone"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/underline",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "underline"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Underline links"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "relationalStorage",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "displayType",
+          "value": "select"
+        },
+        {
+          "links": [],
+          "name": "multiSelect",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "1"
+        },
+        {
+          "links": [],
+          "name": "separator",
+          "value": " "
+        },
+        {
+          "links": [],
+          "name": "cache",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "separators",
+          "value": "|, "
+        },
+        {
+          "links": [],
+          "name": "defaultValue",
+          "value": "OnlyInlineLinks"
+        },
+        {
+          "links": [],
+          "name": "freeText",
+          "value": "forbidden"
+        },
+        {
+          "links": [],
+          "name": "largeStorage",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "15"
+        },
+        {
+          "links": [],
+          "name": "values",
+          "value": "OnlyInlineLinks|Yes|No"
+        },
+        {
+          "links": [],
+          "name": "allowedValues",
+          "value": "OnlyInlineLinks,Yes,No"
+        }
+      ],
+      "value": "",
+      "name": "underline",
+      "type": "StaticList"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/usertype",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "usertype"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "User type"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "relationalStorage",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "displayType",
+          "value": "select"
+        },
+        {
+          "links": [],
+          "name": "multiSelect",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "1"
+        },
+        {
+          "links": [],
+          "name": "separator",
+          "value": " "
+        },
+        {
+          "links": [],
+          "name": "cache",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "separators",
+          "value": "|, "
+        },
+        {
+          "links": [],
+          "name": "defaultValue",
+          "value": "Simple"
+        },
+        {
+          "links": [],
+          "name": "freeText",
+          "value": "forbidden"
+        },
+        {
+          "links": [],
+          "name": "largeStorage",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "14"
+        },
+        {
+          "links": [],
+          "name": "values",
+          "value": "Simple|Advanced"
+        },
+        {
+          "links": [],
+          "name": "allowedValues",
+          "value": "Simple,Advanced"
+        }
+      ],
+      "value": "",
+      "name": "usertype",
+      "type": "StaticList"
+    },
+    {
+      "links": [
+        {
+          "href": "http://127.0.0.1:8099/xwiki/rest/wikis/xwiki/spaces/XWiki/pages/MaraLindqvist/objects/XWiki.XWikiUsers/0/properties/validkey",
+          "rel": "self",
+          "type": null,
+          "hrefLang": null
+        }
+      ],
+      "attributes": [
+        {
+          "links": [],
+          "name": "name",
+          "value": "validkey"
+        },
+        {
+          "links": [],
+          "name": "prettyName",
+          "value": "Validation Key"
+        },
+        {
+          "links": [],
+          "name": "unmodifiable",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "disabled",
+          "value": "0"
+        },
+        {
+          "links": [],
+          "name": "size",
+          "value": "10"
+        },
+        {
+          "links": [],
+          "name": "number",
+          "value": "5"
+        }
+      ],
+      "value": "",
+      "name": "validkey",
+      "type": "Password"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+[package]
+name = "knobas-adapter-xwiki"
+edition.workspace = true
+version.workspace = true
+description = "An external knobas adapter for XWiki: pages into the Docs view, edits back."
+
+# An ordinary library, which is what `cargo test` runs on the host. The
+# component is the same crate linked as a `cdylib` for `wasm32-wasip2`:
+# `scripts/build.sh`, which runs
+#   cargo rustc -p knobas-adapter-xwiki --target wasm32-wasip2 --release --crate-type cdylib
+# A `cdylib` cannot be linked on the host, where the imports the WIT bindings
+# name do not exist, so it is not a crate type here.
+[lib]
+crate-type = ["rlib"]
+
+[dependencies]
+knobas-adapter-sdk.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+chrono.workspace = true
+
+# The guest half of `wasi:http` 0.2, the component's one way out. The copy
+# Rust's std for `wasm32-wasip2` resolves, as knobas' own fixture pins it.
+[target.'cfg(target_family = "wasm")'.dependencies]
+wasip2 = "=1.0.4"

@@ -1,0 +1,5 @@
+/target
+/dist
+/testenv/state.json
+/testenv/*.local
+__pycache__/
