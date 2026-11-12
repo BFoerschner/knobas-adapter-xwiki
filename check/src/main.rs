@@ -6,6 +6,8 @@
 //! ```text
 //! cargo run -p check -- static [dist/knobas-adapter.json]
 //! cargo run -p check -- live   [dist/knobas-adapter.json]
+//! cargo run -p check -- writes [dist/knobas-adapter.json]
+//! CHECK_CURSOR='…' cargo run -p check -- sync
 //! ```
 //!
 //! **static** is what install runs (ADR-0028, *The checks*): the manifest is
@@ -126,8 +128,29 @@ async fn main() {
         "static" => {}
         "live" => live(checked).await,
         "writes" => writes(checked).await,
+        "sync" => sync_from(checked, std::env::var("CHECK_CURSOR").ok()).await,
         _ => usage(),
     }
+}
+
+/// One sync from `CHECK_CURSOR` (a full sync when it is unset), printing
+/// every item it hands over and the cursor it answers: for watching what an
+/// incremental run sees after a change made by hand in the wiki.
+async fn sync_from(checked: Checked, cursor: Option<String>) {
+    let source = checked
+        .adapter
+        .build(instance(Fault::None))
+        .unwrap_or_else(|e| fail(&format!("the source does not build: {e}")));
+    let mut sink = VecSink(Vec::new());
+    let answer = source
+        .sync(cursor, &mut sink)
+        .await
+        .unwrap_or_else(|e| fail(&format!("sync: {e}")));
+    for item in &sink.0 {
+        let what = if item.deleted { "deleted" } else { "item" };
+        println!("{what:7} {}", item.entity);
+    }
+    println!("cursor  {answer}");
 }
 
 /// The writes, end to end on the live wiki: what the battery leaves to the

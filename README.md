@@ -70,8 +70,10 @@ read; a page someone changed since is held as *moved*) and `create_page`
 
 Limits worth knowing:
 
-- XWiki keeps no record of deletions, so an incremental sync does not see a
-  deleted page. The next full sync does, and knobas removes it then.
+- XWiki keeps no record of deletions, so every incremental sync lists the
+  synced spaces' pages (one request per 50) and hands over as deleted each
+  page the cursor holds that the listing no longer names. The cursor holds
+  every synced page's name for that, some 60 bytes a page.
 - The version knobas shows is XWiki's major version. A minor edit made in
   XWiki ("minor edit" ticked) does not move it, so an edit against it is not
   caught as moved.
@@ -101,6 +103,7 @@ cargo run -p check -- static   # what install checks: manifest, hash, interface,
 cargo run -p check -- live     # + test_connection, a full sync, the role data check,
                                #   the docs contract and the whole contract battery
 cargo run -p check -- writes   # + create a page, edit a section, a stale edit, a comment
+CHECK_CURSOR='…' cargo run -p check -- sync   # one run from a cursor: what it hands over
 ```
 
 `live` and `writes` run against a real XWiki: `XWIKI_URL` (default

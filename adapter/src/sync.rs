@@ -6,17 +6,19 @@
 //! sweeps it after the run.
 //!
 //! **An incremental sync** reads XWiki's modification list since the
-//! cursor's instant and reads only the pages it names. A page the list names
-//! that no longer exists is handed over as deleted. A deletion the list does
-//! not name (XWiki records none) waits for the next full sync. With nothing
-//! modified in scope it hands nothing and answers the cursor it was given,
-//! unchanged, even when pages outside the synced spaces changed: those are
-//! listed again by the next run, which costs a listing and nothing more.
+//! cursor's instant and reads only the pages it names. XWiki records no
+//! deletion, and knobas runs a full sync only for a source's first run and a
+//! backfill, so the incremental sync finds deletions itself: it lists the
+//! synced spaces' pages and hands over as deleted every page the cursor
+//! holds that the listing no longer names. With nothing modified in scope
+//! and nothing deleted it hands nothing and answers the cursor it was given,
+//! unchanged, even when pages outside the synced spaces changed.
 //!
-//! **The cursor** is `{"v":1,"since":<ms>}`: the newest instant of XWiki's
-//! modification list the sync has read past. A full sync takes it before
-//! its walk; an incremental one moves it to the newest modification in
-//! scope it read.
+//! **The cursor** is `{"v":2,"since":<ms>,"pages":[…]}`: the newest instant
+//! of XWiki's modification list the sync has read past, and the full name
+//! of every page the source holds. A full sync takes the instant before its
+//! walk; an incremental one moves it to the newest modification in scope it
+//! read. The page set costs some 60 bytes a page.
 //!
 //! Every page costs four requests (the record, its comments, its tags and
 //! its rendering), plus one per user whose name it shows, once per run.
@@ -36,14 +38,20 @@ use crate::api::Client;
 use crate::page::{self, Ancestor, Extra, Space, Target};
 
 /// The cursor's content.
-#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Position {
     pub v: u32,
+    /// The newest instant of the modification list read past.
     pub since: i64,
+    /// Every page the source holds, by full name: what an incremental sync
+    /// compares the wiki's listing with to find the pages deleted since.
+    pub pages: BTreeSet<String>,
 }
 
 impl Position {
-    const VERSION: u32 = 1;
+    /// 2 since the page set; a cursor of version 1 is read as none, so the
+    /// first sync after the upgrade is a full one.
+    const VERSION: u32 = 2;
 
     /// Read a cursor; one this adapter did not write is a full sync.
     #[must_use]
@@ -54,10 +62,11 @@ impl Position {
     }
 
     #[must_use]
-    pub fn write(since: i64) -> Cursor {
+    pub fn write(since: i64, pages: BTreeSet<String>) -> Cursor {
         serde_json::to_string(&Self {
             v: Self::VERSION,
             since,
+            pages,
         })
         .expect("a position serializes")
     }
@@ -272,64 +281,84 @@ impl Run<'_> {
     ///
     /// A request's fault, or the sink's, as it came.
     pub fn sync(&self, cursor: Option<&str>, sink: &mut Sink) -> Result<Cursor, SourceError> {
-        let position = cursor.and_then(Position::read);
-        let (names, mut since): (Vec<String>, i64) = match position {
-            None => {
-                // The position is taken before the walk, so an edit made
-                // while it runs is read again by the next sync, not lost.
-                let since = self.client.newest_modification()?.unwrap_or(0);
-                let index = self.index()?;
-                let names = index.titles.keys().cloned().collect::<Vec<_>>();
-                return self.walk(&index, &names, since, sink);
-            }
-            Some(position) => {
-                let changed = self.client.modifications(position.since)?;
-                let mut names = Vec::new();
-                let mut since = position.since;
-                for change in changed {
-                    let full = page::local(&change.page_id).to_owned();
-                    // Only a change in scope moves the position: a sync
-                    // that hands nothing answers the cursor it was given,
-                    // even when pages elsewhere in the wiki changed.
-                    if self.in_scope(&full) {
-                        since = since.max(change.modified);
-                        if !names.contains(&full) {
-                            names.push(full);
-                        }
-                    }
-                }
-                (names, since)
-            }
+        let Some(position) = cursor.and_then(Position::read) else {
+            // The position is taken before the walk, so an edit made while
+            // it runs is read again by the next sync, not lost.
+            let since = self.client.newest_modification()?.unwrap_or(0);
+            let index = self.index()?;
+            let names: Vec<String> = index.titles.keys().cloned().collect();
+            // A page the listing names and the walk cannot read (hidden,
+            // deleted since) is left out: the sweep after a full sync
+            // retires what the mirror held of it.
+            let held = self.walk(&index, &names, false, sink)?;
+            return Ok(Position::write(since, held));
         };
-        if names.is_empty() {
+
+        let mut since = position.since;
+        let mut changed: Vec<String> = Vec::new();
+        for change in self.client.modifications(position.since)? {
+            let full = page::local(&change.page_id).to_owned();
+            // Only a change in scope moves the position: a sync that hands
+            // nothing answers the cursor it was given, even when pages
+            // elsewhere in the wiki changed.
+            if self.in_scope(&full) {
+                since = since.max(change.modified);
+                if !changed.contains(&full) {
+                    changed.push(full);
+                }
+            }
+        }
+        // XWiki lists no deletions, so they are found by listing what is
+        // there: a page the source held that the listing no longer names.
+        let index = self.index()?;
+        let deleted: Vec<String> = position
+            .pages
+            .iter()
+            .filter(|name| !index.titles.contains_key(*name) && !changed.contains(name))
+            .cloned()
+            .collect();
+        if changed.is_empty() && deleted.is_empty() {
             sink.walked(0, Some(0), "pages");
             return Ok(cursor.unwrap_or_default().to_owned());
         }
-        let index = self.index()?;
-        since = since.max(position.map_or(0, |p| p.since));
-        self.walk(&index, &names, since, sink)
+        let mut pages = position.pages;
+        for name in &changed {
+            pages.remove(name);
+        }
+        let held = self.walk(&index, &changed, true, sink)?;
+        pages.extend(held);
+        for name in deleted {
+            sink.item(self.gone(&name))?;
+            pages.remove(&name);
+        }
+        Ok(Position::write(since, pages))
     }
 
-    /// Read and hand over every page of `names`, and answer the position
-    /// `since`: an instant of the modification list, never a page record's
-    /// `modified` (see [`Client::newest_modification`]).
+    /// Read and hand over every page of `names`, and answer the ones it
+    /// handed over. A page it cannot read is handed over as deleted when
+    /// `tombstone` is set, else left out.
     fn walk(
         &self,
         index: &Index,
         names: &[String],
-        since: i64,
+        tombstone: bool,
         sink: &mut Sink,
-    ) -> Result<Cursor, SourceError> {
+    ) -> Result<BTreeSet<String>, SourceError> {
         let total = names.len() as u64;
+        let mut held = BTreeSet::new();
         for (done, full_name) in names.iter().enumerate() {
             sink.walked(done as u64, Some(total), "pages");
             match self.item(index, full_name)? {
-                Some(item) => sink.item(item)?,
-                None => sink.item(self.gone(full_name))?,
+                Some(item) => {
+                    sink.item(item)?;
+                    held.insert(full_name.clone());
+                }
+                None if tombstone => sink.item(self.gone(full_name))?,
+                None => {}
             }
         }
         sink.walked(total, Some(total), "pages");
-        Ok(Position::write(since))
+        Ok(held)
     }
 }
 
@@ -551,11 +580,15 @@ mod tests {
 
     #[test]
     fn a_cursor_round_trips_and_a_foreign_one_is_a_full_sync() {
-        let c = Position::write(1_787_400_300_000);
-        assert_eq!(c, r#"{"v":1,"since":1787400300000}"#);
+        let c = Position::write(1_787_400_300_000, BTreeSet::from(["A.WebHome".to_owned()]));
+        assert_eq!(c, r#"{"v":2,"since":1787400300000,"pages":["A.WebHome"]}"#);
         assert_eq!(Position::read(&c).map(|p| p.since), Some(1_787_400_300_000));
         assert_eq!(Position::read("5"), None);
-        assert_eq!(Position::read(r#"{"v":2,"since":1}"#), None);
+        assert_eq!(
+            Position::read(r#"{"v":1,"since":1}"#),
+            None,
+            "a version 1 cursor is a full sync"
+        );
     }
 
     #[test]
