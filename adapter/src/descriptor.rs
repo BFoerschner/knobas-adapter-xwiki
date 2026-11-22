@@ -1,7 +1,7 @@
 //! What this adapter says about itself: the descriptor knobas generates the
 //! Add-source form from, checks at install, and reads every item with.
 
-use knobas_adapter_sdk::SourceDescriptor;
+use knobas_adapter_sdk::{SourceDescriptor, WebSignInPages};
 
 use crate::page;
 use knobas_adapter_sdk::spi::docs::PAGE_KIND;
@@ -65,6 +65,13 @@ pub fn descriptor(id: &str, name: &str) -> SourceDescriptor {
         source_actions: Vec::new(),
         clone_from: Vec::new(),
         url_forms: Vec::new(),
+        // knobas' in-app site fills a saved web sign-in into XWiki's own
+        // login page by itself (`knobas:adapter@1.7.0`): its path after the
+        // base URL, which ends at the wiki's context (`…/xwiki`) or at the
+        // host. Its "Remember me" (`j_rememberme`) is ticked by the fill, so
+        // XWiki keeps the session past a restart. The sign-in never reaches
+        // the component: knobas keeps it and types it into its own web view.
+        web_sign_in: Some(WebSignInPages::at(&["/bin/login/XWiki/XWikiLogin"])),
         code_pages: None,
     }
 }
@@ -134,6 +141,17 @@ pub fn config_schema() -> serde_json::Value {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    /// knobas fills a saved sign-in into XWiki's own login page by itself
+    /// (`knobas:adapter@1.7.0`): the path after a base URL that ends at the
+    /// wiki's context, in the rules knobas holds a declaration to.
+    #[test]
+    fn the_login_page_is_declared() {
+        let pages = descriptor(KIND, KIND).web_sign_in.expect("declared");
+        assert_eq!(pages.paths, ["/bin/login/XWiki/XWikiLogin"]);
+        assert!(!pages.any_page);
+        knobas_adapter_sdk::spi::web_sign_in::check(&pages).expect("knobas accepts it");
+    }
 
     /// The checks install runs on the descriptor alone: every claimed role
     /// is covered by the kinds, paths and reads declared.

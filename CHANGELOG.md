@@ -1,5 +1,22 @@
 # Changelog
 
+## Unreleased
+
+Built on `knobas:adapter@1.7.0` (knobas' `ux30-signin` branch, not released
+yet). The 0.1.0 pin to the `v3.2.9-ux7` tag is gone: that SDK has no
+`web_sign_in`, so the descriptor no longer compiles against it.
+
+- The wiki opens inside knobas signed in, as Confluence does: the descriptor
+  declares XWiki's login page (`/bin/login/XWiki/XWikiLogin` after the base
+  URL), so knobas fills the sign-in you saved in *Settings › Sources › XWiki ›
+  Site* into it by itself and ticks *Remember me*, and XWiki keeps the session
+  past a restart. The sign-in stays in knobas' keychain; the component never
+  sees it.
+- `INTERFACE=1.6.0` or `INTERFACE=1.5.0 scripts/build.sh` still builds
+  against those frozen worlds (features `v1_6`, `v1_5`), for a knobas that
+  hosts no newer one. Such a build's sign-in page is dropped by the host,
+  which offers *Fill sign-in* alone.
+
 ## 0.1.0
 
 The first release, on `knobas:adapter@1.5.0` (knobas `v3.2.9-ux7`).

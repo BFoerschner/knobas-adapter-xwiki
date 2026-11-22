@@ -13,6 +13,14 @@ description = "An external knobas adapter for XWiki: pages into the Docs view, e
 [lib]
 crate-type = ["rlib"]
 
+[features]
+# Build against a frozen older `knobas:adapter` world instead of 1.7.0, for a
+# knobas that hosts no newer one (`INTERFACE=1.6.0` or `INTERFACE=1.5.0
+# scripts/build.sh`). Such a component's sign-in page is dropped by the host:
+# its site offers *Fill sign-in* alone.
+v1_6 = ["knobas-adapter-sdk/v1_6"]
+v1_5 = ["knobas-adapter-sdk/v1_5"]
+
 [dependencies]
 knobas-adapter-sdk.workspace = true
 serde.workspace = true

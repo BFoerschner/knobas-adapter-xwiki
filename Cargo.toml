@@ -6,13 +6,16 @@ members = ["adapter", "check"]
 edition = "2024"
 version = "0.1.0"
 
-# The knobas release whose SDK and host this adapter is built and checked
+# The knobas revision whose SDK and host this adapter is built and checked
 # against. The SDK's version is the `knobas:adapter` interface it binds
-# (1.5.0 at this tag); the manifest's `interface_version` says the same.
+# (1.7.0 at this revision, on knobas' `ux30-signin` branch until a release
+# carries it); the manifest's `interface_version` says the same. The frozen
+# 1.6.0 and 1.5.0 worlds build from the same revision (`INTERFACE=1.6.0` or
+# `INTERFACE=1.5.0 scripts/build.sh`).
 [workspace.dependencies]
-knobas-adapter-sdk = { git = "https://github.com/BFoerschner/knobas", tag = "v3.2.9-ux7" }
-knobas-wasm-host = { git = "https://github.com/BFoerschner/knobas", tag = "v3.2.9-ux7" }
-knobas-source = { git = "https://github.com/BFoerschner/knobas", tag = "v3.2.9-ux7" }
+knobas-adapter-sdk = { git = "https://github.com/BFoerschner/knobas", rev = "a6fedccec6c3d622aa8b8026914c7b83255bf96c" }
+knobas-wasm-host = { git = "https://github.com/BFoerschner/knobas", rev = "a6fedccec6c3d622aa8b8026914c7b83255bf96c" }
+knobas-source = { git = "https://github.com/BFoerschner/knobas", rev = "a6fedccec6c3d622aa8b8026914c7b83255bf96c" }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 chrono = { version = "0.4", default-features = false, features = ["serde", "std"] }

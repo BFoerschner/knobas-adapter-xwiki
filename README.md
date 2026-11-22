@@ -4,7 +4,8 @@ An external [knobas](https://github.com/BFoerschner/knobas) adapter for
 [XWiki](https://www.xwiki.org). It syncs the pages of the spaces you pick
 into knobas' Docs view, with their comments, tags, authors and page tree,
 and writes comments, section edits and new pages back. It is a WASM
-component, built with knobas' Rust SDK against `knobas:adapter@1.5.0`, and
+component, built with knobas' Rust SDK against `knobas:adapter@1.7.0` (or the
+frozen 1.6.0 or 1.5.0: `INTERFACE=1.6.0 scripts/build.sh`), and
 it runs in knobas' sandbox: no disk, no keychain, and HTTP only to the wiki
 you configure.
 
@@ -33,6 +34,12 @@ Tested against XWiki 17.10.15 (LTS) with the XWiki Standard flavor.
 3. *Test connection* says whom XWiki served the credential as. A wrong
    password fails here as *unauthorized* rather than syncing what a guest
    may read.
+4. To open the wiki inside knobas signed in, turn on *Open its pages inside
+   knobas* in *Settings › Sources › XWiki › Site* and save a sign-in there
+   (*Saved sign-in › Save one…*). knobas types it into XWiki's own login page
+   whenever the site lands there, with *Remember me* ticked, so XWiki keeps
+   you signed in across restarts. It stays in knobas' keychain; this
+   component only declares where the login page is (`knobas:adapter@1.7.0`).
 
 XWiki locks an account behind a captcha after three failed logins in five
 minutes (`XWiki.Authentication.Configuration`), and basic auth cannot answer
