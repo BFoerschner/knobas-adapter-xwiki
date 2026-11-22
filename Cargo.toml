@@ -13,9 +13,9 @@ version = "0.1.0"
 # 1.6.0 and 1.5.0 worlds build from the same revision (`INTERFACE=1.6.0` or
 # `INTERFACE=1.5.0 scripts/build.sh`).
 [workspace.dependencies]
-knobas-adapter-sdk = { git = "https://github.com/BFoerschner/knobas", rev = "a6fedccec6c3d622aa8b8026914c7b83255bf96c" }
-knobas-wasm-host = { git = "https://github.com/BFoerschner/knobas", rev = "a6fedccec6c3d622aa8b8026914c7b83255bf96c" }
-knobas-source = { git = "https://github.com/BFoerschner/knobas", rev = "a6fedccec6c3d622aa8b8026914c7b83255bf96c" }
+knobas-adapter-sdk = { git = "https://github.com/BFoerschner/knobas", rev = "f830aac1fdbf65ebe576b1fc38c1c016e49c5915" }
+knobas-wasm-host = { git = "https://github.com/BFoerschner/knobas", rev = "f830aac1fdbf65ebe576b1fc38c1c016e49c5915" }
+knobas-source = { git = "https://github.com/BFoerschner/knobas", rev = "f830aac1fdbf65ebe576b1fc38c1c016e49c5915" }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 chrono = { version = "0.4", default-features = false, features = ["serde", "std"] }

@@ -69,9 +69,14 @@ pub fn descriptor(id: &str, name: &str) -> SourceDescriptor {
         // login page by itself (`knobas:adapter@1.7.0`): its path after the
         // base URL, which ends at the wiki's context (`…/xwiki`) or at the
         // host. Its "Remember me" (`j_rememberme`) is ticked by the fill, so
-        // XWiki keeps the session past a restart. The sign-in never reaches
+        // XWiki keeps the session past a restart. A refused password lands on
+        // `loginsubmit`, declared too, so knobas tells "did not take the
+        // saved sign-in" from a sign-in that worked. The sign-in never reaches
         // the component: knobas keeps it and types it into its own web view.
-        web_sign_in: Some(WebSignInPages::at(&["/bin/login/XWiki/XWikiLogin"])),
+        web_sign_in: Some(WebSignInPages::at(&[
+            "/bin/login/XWiki/XWikiLogin",
+            "/bin/loginsubmit/XWiki/XWikiLogin",
+        ])),
         code_pages: None,
     }
 }
@@ -148,7 +153,13 @@ mod tests {
     #[test]
     fn the_login_page_is_declared() {
         let pages = descriptor(KIND, KIND).web_sign_in.expect("declared");
-        assert_eq!(pages.paths, ["/bin/login/XWiki/XWikiLogin"]);
+        assert_eq!(
+            pages.paths,
+            [
+                "/bin/login/XWiki/XWikiLogin",
+                "/bin/loginsubmit/XWiki/XWikiLogin"
+            ]
+        );
         assert!(!pages.any_page);
         knobas_adapter_sdk::spi::web_sign_in::check(&pages).expect("knobas accepts it");
     }

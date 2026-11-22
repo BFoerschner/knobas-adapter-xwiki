@@ -1371,7 +1371,7 @@ dependencies = [
 [[package]]
 name = "knobas-adapter-sdk"
 version = "1.7.0"
-source = "git+https://github.com/BFoerschner/knobas?rev=a6fedccec6c3d622aa8b8026914c7b83255bf96c#a6fedccec6c3d622aa8b8026914c7b83255bf96c"
+source = "git+https://github.com/BFoerschner/knobas?rev=f830aac1fdbf65ebe576b1fc38c1c016e49c5915#f830aac1fdbf65ebe576b1fc38c1c016e49c5915"
 dependencies = [
  "chrono",
  "knobas-source",
@@ -1394,7 +1394,7 @@ dependencies = [
 [[package]]
 name = "knobas-core"
 version = "3.2.8"
-source = "git+https://github.com/BFoerschner/knobas?rev=a6fedccec6c3d622aa8b8026914c7b83255bf96c#a6fedccec6c3d622aa8b8026914c7b83255bf96c"
+source = "git+https://github.com/BFoerschner/knobas?rev=f830aac1fdbf65ebe576b1fc38c1c016e49c5915#f830aac1fdbf65ebe576b1fc38c1c016e49c5915"
 dependencies = [
  "chrono",
  "encoding_rs",
@@ -1413,7 +1413,7 @@ dependencies = [
 [[package]]
 name = "knobas-http"
 version = "3.2.8"
-source = "git+https://github.com/BFoerschner/knobas?rev=a6fedccec6c3d622aa8b8026914c7b83255bf96c#a6fedccec6c3d622aa8b8026914c7b83255bf96c"
+source = "git+https://github.com/BFoerschner/knobas?rev=f830aac1fdbf65ebe576b1fc38c1c016e49c5915#f830aac1fdbf65ebe576b1fc38c1c016e49c5915"
 dependencies = [
  "bytes",
  "http",
@@ -1431,7 +1431,7 @@ dependencies = [
 [[package]]
 name = "knobas-source"
 version = "3.2.8"
-source = "git+https://github.com/BFoerschner/knobas?rev=a6fedccec6c3d622aa8b8026914c7b83255bf96c#a6fedccec6c3d622aa8b8026914c7b83255bf96c"
+source = "git+https://github.com/BFoerschner/knobas?rev=f830aac1fdbf65ebe576b1fc38c1c016e49c5915#f830aac1fdbf65ebe576b1fc38c1c016e49c5915"
 dependencies = [
  "async-trait",
  "chrono",
@@ -1445,7 +1445,7 @@ dependencies = [
 [[package]]
 name = "knobas-spi-types"
 version = "3.2.8"
-source = "git+https://github.com/BFoerschner/knobas?rev=a6fedccec6c3d622aa8b8026914c7b83255bf96c#a6fedccec6c3d622aa8b8026914c7b83255bf96c"
+source = "git+https://github.com/BFoerschner/knobas?rev=f830aac1fdbf65ebe576b1fc38c1c016e49c5915#f830aac1fdbf65ebe576b1fc38c1c016e49c5915"
 dependencies = [
  "chrono",
  "serde",
@@ -1458,7 +1458,7 @@ dependencies = [
 [[package]]
 name = "knobas-wasm-host"
 version = "3.2.8"
-source = "git+https://github.com/BFoerschner/knobas?rev=a6fedccec6c3d622aa8b8026914c7b83255bf96c#a6fedccec6c3d622aa8b8026914c7b83255bf96c"
+source = "git+https://github.com/BFoerschner/knobas?rev=f830aac1fdbf65ebe576b1fc38c1c016e49c5915#f830aac1fdbf65ebe576b1fc38c1c016e49c5915"
 dependencies = [
  "async-trait",
  "base64 0.22.1",

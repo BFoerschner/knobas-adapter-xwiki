@@ -3,12 +3,13 @@
 ## Unreleased
 
 Built on `knobas:adapter@1.7.0` (knobas' `ux30-signin` branch, not released
-yet). The 0.1.0 pin to the `v3.2.9-ux7` tag is gone: that SDK has no
+yet). Proven in knobas' Mac window against the test wiki: filled by itself on
+the login redirect, signed in, and still signed in after a quit and start. The 0.1.0 pin to the `v3.2.9-ux7` tag is gone: that SDK has no
 `web_sign_in`, so the descriptor no longer compiles against it.
 
 - The wiki opens inside knobas signed in, as Confluence does: the descriptor
   declares XWiki's login page (`/bin/login/XWiki/XWikiLogin` after the base
-  URL), so knobas fills the sign-in you saved in *Settings › Sources › XWiki ›
+  URL, and `/bin/loginsubmit/…` where a refused password lands), so knobas fills the sign-in you saved in *Settings › Sources › XWiki ›
   Site* into it by itself and ticks *Remember me*, and XWiki keeps the session
   past a restart. The sign-in stays in knobas' keychain; the component never
   sees it.
